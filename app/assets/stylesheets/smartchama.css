@@ -1,0 +1,15 @@
+/**
+  * Custom Styles for SmartChama
+  *
+  */
+
+.footer {
+  background-color: rgba(169,3,41, 0.8);
+  height: 30px;
+}
+
+.footer a{
+  font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;  
+  
+}
