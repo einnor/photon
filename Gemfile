@@ -42,6 +42,9 @@ gem 'unicorn'
 #Paginate tables
 gem 'will_paginate', '~> 3.0'
 
+# Devise gem to Authenticate Users
+gem 'devise'
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'

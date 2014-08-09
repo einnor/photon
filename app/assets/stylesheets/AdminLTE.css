@@ -216,6 +216,10 @@ img {
 .bg-lime {
   background-color: #01ff70 !important;
 }
+
+.bg-sc-blue {
+  background-color: rgba(0,115,183, 1); !important;
+}
 .bg-orange {
   background-color: #ff851b !important;
 }
@@ -2409,7 +2413,7 @@ Component: timeline
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background: #3d9970;
+  background: rgba(0,115,183, 1);
   box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.2);
   padding: 20px 10px;
   text-align: center;

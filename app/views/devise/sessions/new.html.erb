@@ -1,0 +1,37 @@
+    <div id="hm_page">
+        <ul class="cb-slideshow">
+            <li><span>Image 01</span><div><h3></h3></div></li>
+            <li><span>Image 02</span><div><h3></h3></div></li>
+            <li><span>Image 03</span><div><h3></h3></div></li>
+            <li><span>Image 04</span><div><h3></h3></div></li>
+            <li><span>Image 05</span><div><h3></h3></div></li>
+            <li><span>Image 06</span><div><h3></h3></div></li>
+        </ul>
+        <div class="container">
+            <!-- Codrops top bar -->
+            
+            <header>
+                <h1>Smart<span>Chama.</span></h1>
+                <h2>The Smart way to run Chama</h2>
+            </header>
+
+		    <div class="form-box" id="login-box">
+		        <div class="header">Sign In</div>
+		    	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		    	<div class="body bg-gray">
+				  <div><%= f.label :email %><br />
+				  <%= f.email_field :email, autofocus: true %></div>
+
+				  <div><%= f.label :password %><br />
+				    <%= f.password_field :password, autocomplete: "off" %></div>
+
+				  <% if devise_mapping.rememberable? -%>
+				    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+				  <% end -%>
+
+				  <div><%= f.submit "Sign in",:class=>"btn bg-sc-blue btn-block" %></div>
+				  </div>
+				<% end %>
+		    </div>            
+        </div>
+    </div>

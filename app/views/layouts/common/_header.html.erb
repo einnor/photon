@@ -1,3 +1,4 @@
+<% if signed_in? %>
 <header class="header skin-blue">
            
             <!-- Header Navbar: style can be found in header.less -->
@@ -237,7 +238,9 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <% if signed_in? %>
+                                            <%= link_to('Logout', destroy_user_session_path, :method=>'delete',:class=>"btn btn-default btn-flat") %>
+                                        <% end %>
                                     </div>
                                 </li>
                             </ul>
@@ -246,3 +249,5 @@
                 </div>
             </nav>
         </header>
+
+        <% end %>
