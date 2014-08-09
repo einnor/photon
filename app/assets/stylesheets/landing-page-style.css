@@ -54,7 +54,7 @@
     font-size: 160px;
     padding: 0 30px;
     line-height: 120px;
-    color: rgba(169,3,41, 0.8);
+    color: rgba(0,115,183, 0.8);
 }
 .cb-slideshow li:nth-child(1) span { background-image: url("/assets/6.jpg") }
 .cb-slideshow li:nth-child(2) span {

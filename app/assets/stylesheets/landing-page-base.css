@@ -13,6 +13,27 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'BebasNeueBold';
+    src: url('fonts/bebas/BebasNeue-Bold.otf');
+}
+
+@font-face {
+    font-family: 'BebasNeueLight';
+    src: url('fonts/bebas/BebasNeue-Light.otf');
+}
+
+@font-face {
+    font-family: 'BebasNeueBook';
+    src: url('fonts/bebas/BebasNeue-Book.otf');
+}
+
+@font-face {
+    font-family: 'BebasNeueThin';
+    src: url('fonts/bebas/BebasNeue-Thin.otf');
+}
+
 /* CSS reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
 	margin:0;
@@ -57,10 +78,8 @@ abbr,acronym { border:0;
 /* General Demo Style */
 body{
 	font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-	
 	font-weight: 400;
 	font-size: 15px;
-	color: #aa3e03;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
