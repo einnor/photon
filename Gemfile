@@ -45,6 +45,9 @@ gem 'will_paginate', '~> 3.0'
 # Devise gem to Authenticate Users
 gem 'devise'
 
+# To handle resource authorization
+gem "cancan"
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'

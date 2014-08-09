@@ -12,6 +12,14 @@ Rails.application.routes.draw do
 
   get 'home/help'
 
+  get 'home/passthrough'
+
   root :to => 'home#index'
+
+  get 'admin/admin/index'
+
+  namespace :admin do
+    resources :users
+  end
 
 end
