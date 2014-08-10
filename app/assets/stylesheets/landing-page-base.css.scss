@@ -5,32 +5,32 @@
   */
 @font-face {
     font-family: 'BebasNeueRegular';
-    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/BebasNeue-webfont.woff') format('woff'),
-         url('fonts/BebasNeue-webfont.ttf') format('truetype'),
-         url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+    src: font-url('/assets/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('/assets/BebasNeue-webfont.woff') format('woff'),
+         font-url('/assets/BebasNeue-webfont.ttf') format('truetype'),
+         font-url('/assets/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'BebasNeueBold';
-    src: url('fonts/bebas/BebasNeue-Bold.otf');
+    src: font-url('/assets/bebas/BebasNeue-Bold.otf');
 }
 
 @font-face {
     font-family: 'BebasNeueLight';
-    src: url('fonts/bebas/BebasNeue-Light.otf');
+    src: font-url('/assets/bebas/BebasNeue-Light.otf');
 }
 
 @font-face {
     font-family: 'BebasNeueBook';
-    src: url('fonts/bebas/BebasNeue-Book.otf');
+    src: font-url('/assets/bebas/BebasNeue-Book.otf');
 }
 
 @font-face {
     font-family: 'BebasNeueThin';
-    src: url('fonts/bebas/BebasNeue-Thin.otf');
+    src: font-url('/assets/bebas/BebasNeue-Thin.otf');
 }
 
 /* CSS reset */
