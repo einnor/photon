@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # Permit role_ids parameter to user model
-  # before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   layout :layout_by_resource
 
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << {role_ids: []}
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit({ role_ids: [] }, :name, :phone_number, :national_id_number, :email, :password, :password_confirmation) }
   end
 
   def layout_by_resource
