@@ -85,4 +85,8 @@ Rails.application.configure do
 
   # Precompile additional assets
   config.assets.precompile += %w( .svg .eot .woff .ttf )
+
+  config.serve_static_assets = true
+config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+config.assets.compile = true
 end
