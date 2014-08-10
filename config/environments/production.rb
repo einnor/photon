@@ -79,10 +79,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-   # If you are deploying on Heroku with Rails 3.2 only, you may want to set:
-   # On config/application.rb forcing your application to not access the DB
-   # or load models when precompiling your assets.
-    
-   config.assets.initialize_on_precompile = false
 end

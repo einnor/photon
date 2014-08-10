@@ -51,6 +51,9 @@ gem "cancan"
 # Fix turbo links problem
 gem 'jquery-turbolinks'
 
+# Server static assets 
+gem 'rails_12factor', group: :production
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'

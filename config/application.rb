@@ -24,6 +24,11 @@ module Smartchama
     # On config/application.rb forcing your application to not access the DB
     # or load models when precompiling your assets.
     
-    config.assets.initialize_on_precompile = false
+    # config.assets.initialize_on_precompile = false
+
+    # Make heroku serve assets
+    # config.serve_static_assets = true
+
+
   end
 end
