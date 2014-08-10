@@ -17,7 +17,7 @@
             <div class="box-header">
                 <h3 class="box-title">Edit Chama Administrator</h3>
             </div><!-- /.box-header -->
-	        <div class="box-body no-padding">
+	        <div class="box-body">
 	            <%= form_for [:admin, @user], :html => {:multipart => true} do |f| %>
 					
 					 <div class="control-group" style="display: inline;">
@@ -59,7 +59,7 @@
             <div class="box-header">
                 <h3 class="box-title">.</h3>
             </div><!-- /.box-header -->
-	        <div class="box-body no-padding">
+	        <div class="box-body">
 	            
 					 <div class="control-group">
 					   <%= f.label :national_id_number, t("activerecord.attributes.user.email", :default => "National ID No"), :class => 'control-label' %>

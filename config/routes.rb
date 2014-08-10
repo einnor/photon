@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :chamas
+
   get 'home/index'
 
   get 'home/dashboard'

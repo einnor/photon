@@ -86,10 +86,7 @@ body{
 .ie7 body{
 	overflow:hidden;
 }
-a{
-	color: #333;
-	text-decoration: none;
-}
+
 .container{
 	position: relative;
 	text-align: center;

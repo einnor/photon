@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140809193925) do
+ActiveRecord::Schema.define(version: 20140810174248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chamas", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "chama_type"
+    t.integer  "approx_no_of_members"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "chamas", ["user_id"], name: "index_chamas_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

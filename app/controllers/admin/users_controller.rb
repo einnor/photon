@@ -1,5 +1,14 @@
 class Admin::UsersController < ApplicationController
+  
+  # Cancan Workaround HACK!!
+  before_filter do
+    resource = controller_path.singularize.gsub('/', '_').to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+
   load_and_authorize_resource
+
   layout "admin"
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
