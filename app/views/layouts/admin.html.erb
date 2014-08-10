@@ -25,9 +25,24 @@
   <%= render 'layouts/admin/header' %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-	<%= yield %>
+
+    <div class="skin-blue">     
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <%= render 'layouts/admin/sidebar' %>
+            
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+
+              <%= yield %>
+
+            </aside><!-- /.right-side -->
+       
+          </div><!-- ./wrapper -->
+    </div>
+
   <%= render 'layouts/admin/footer' %>
 
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

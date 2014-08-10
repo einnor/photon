@@ -48,6 +48,9 @@ gem 'devise'
 # To handle resource authorization
 gem "cancan"
 
+# Fix turbo links problem
+gem 'jquery-turbolinks'
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'

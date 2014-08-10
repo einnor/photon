@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
- 
+  layout "admin"
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /Users
@@ -27,7 +28,7 @@ class Admin::UsersController < ApplicationController
   # POST /Users.json
   def create
     @user = User.new(user_params)
-
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }
@@ -70,7 +71,9 @@ class Admin::UsersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :telephone_number, :national_id_number)
+    def user_params      
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, 
+        :phone_number, :national_id_number)
     end
+
 end

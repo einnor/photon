@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-
   get 'home/index'
 
   get 'home/dashboard'
@@ -14,9 +12,13 @@ Rails.application.routes.draw do
 
   get 'home/passthrough'
 
-  root :to => 'home#index'
-
   get 'admin/admin/index'
+
+  devise_for :users
+
+  
+  root :to => 'home#index'
+  
 
   namespace :admin do
     resources :users

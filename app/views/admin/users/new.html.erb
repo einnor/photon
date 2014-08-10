@@ -1,3 +1,105 @@
-<%= form_for [:admin, @user], :url => admin_users_path, :html => { :class => :form } do |f| -%>
-  <%= render :partial => "form", :locals => {:f => f} %>
-<% end -%>
+<!-- Main content -->
+<section class="content">
+<div class="row">
+
+	<% if @user.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this word from being saved:</h2>
+
+	      <ul>
+	      <% @user.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	  
+    <div class="col-md-4 col-md-offset-1">
+      <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Add Chama Administrator</h3>
+            </div><!-- /.box-header -->
+	        <div class="box-body no-padding">
+	           		<%= form_for [:admin, @user], :html => {:multipart => true} do |f| %>
+										 
+					 <div class="control-group" style="display: inline;">
+					   <%= f.label :name, t("activerecord.attributes.user.email", :default => "Name"), :class => 'control-label' %>
+					  <div class="input">
+					    <%= f.text_field :name, :class => 'text_field' %>
+					  </div>
+					</div>
+
+					<div class="control-group">
+					   <%= f.label :email, t("activerecord.attributes.user.email", :default => "Email"), :class => 'control-label' %>
+					  <div class="input">
+					    <%= f.text_field :email, :class => 'text_field' %>
+					  </div>
+					</div>
+
+					<div class="control-group">
+					   <%= f.label :password, t("activerecord.attributes.user.password", :default => "Password"), :class => 'control-label' %>
+					  <div class="input">
+					    <%= f.password_field :password, :class => 'password_field' %>
+					  </div>
+					</div>
+					<div class="control-group">
+					   <%= f.label :Password, t("activerecord.attributes.user.password_confirmation", :default => "Retype Password"), :class => 'control-label' %>
+					  <div class="input">
+					    <%= f.password_field :password_confirmation, :class => 'password_field' %>
+					  </div>
+					</div>
+
+
+				
+
+	        </div><!-- /.box-body -->
+          </div><!-- /.box -->
+    </div>
+
+    <div class="col-md-4">
+      <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">.</h3>
+            </div><!-- /.box-header -->
+	        <div class="box-body no-padding">
+	            
+					 <div class="control-group">
+					   <%= f.label :national_id_number, t("activerecord.attributes.user.email", :default => "National ID No"), :class => 'control-label' %>
+					  <div class="input">
+					    <%= f.text_field :national_id_number, :class => 'text_field' %>
+					  </div>
+					</div>
+
+					<div class="control-group">
+					   <%= f.label :phone_number, t("activerecord.attributes.user.email", :default => "Phone No"), :class => 'control-label' %>
+					  <div class="input">
+					    <%= f.text_field :phone_number, :class => 'text_field' %>
+					  </div>
+					</div>
+
+					
+
+					<% for role in Role.all %> 
+					  <div class ="control-group">
+					   <%= f.label role.name , :class => 'control-label' %>
+					      <div class="controls">
+					        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %> 
+					      </div> 
+					  </div>
+					<% end %>
+
+					<br />
+
+					<div>
+					  <%= f.submit "Submit",:class=>"btn bg-sc-blue btn-block" %>
+					</div>
+
+				  <% end -%>
+
+	        </div><!-- /.box-body -->
+          </div><!-- /.box -->
+    </div>
+    
+
+</div>
+</section>

@@ -4,6 +4,10 @@ class HomeController < ApplicationController
 
   # Landing page
   def index
+    if signed_in?
+      redirect_to home_dashboard_path
+      return
+    end
     render(:layout => "layouts/landing")
   end
 
