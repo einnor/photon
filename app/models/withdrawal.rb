@@ -1,24 +1,28 @@
-module ApplicationHelper
-   #
-   # Helper methods used across the SmartChama application.
-   #
+class Withdrawal < ActiveRecord::Base
+  belongs_to :member
 
-   # Calculates the Loan to be repayed
-   def loan_to_repay()
-   	members = Member.where(:chama_id => current_user.chama.id)
-    loans = Loan.where(:member_id => members).where(:loan_status => "ACCEPTED")
-   end
+  before_save :validate_withdrawal
+  
+  # Validate fields
+  validates :description, presence: true
+  validates :member_id, presence: true
+  validates_numericality_of :amount, :greater_than_or_equal_to => 1
 
-   # Fetches only the right Members
-   def authorized_members()
-   	members = Member.where(:chama_id => current_user.chama.id)
-   end
 
-   # Calculates the Penalties to be repayed
-   def penalty_to_repay
-   	members = Member.where(:chama_id => current_user.chama.id)
-    penalties = Penalty.where(:member_id => members).where(:penalty_status => "NOT-PAYED")
-   end
+  private
+
+  # Validates Member's withdrawal transaction
+  def validate_withdrawal
+  	balance = member_current_savings(self.member_id)
+
+  	if(self.amount > balance)
+  		begin      	      
+	      self.save
+	    rescue
+	      false
+	    end
+  	end
+  end
 
    # Calculates Member's current savings
    def member_current_savings(member_id)

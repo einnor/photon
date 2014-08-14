@@ -81,7 +81,19 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-table"></i> <span>Attendance</span>
+                                <i class="fa fa-laptop"></i>
+                                <span>Withdrawals</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<%= withdrawals_path %>"><i class="fa fa-angle-double-right"></i>View All</a></li>
+                                <li><a href="<%= new_withdrawal_path %>"><i class="fa fa-angle-double-right"></i>Make a Withdrawal</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-calendar"></i> <span>Attendance & Events</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -91,13 +103,7 @@
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Terminated Services</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-calendar"></i> <span>Events Calendar</span>
-                                <small class="badge pull-right bg-red">3</small>
-                            </a>
-                        </li>
-                       
+                                             
                         <li>
                             <a href="#">
                                 <i class="fa fa-envelope"></i> <span>Reports</span>

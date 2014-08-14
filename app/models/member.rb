@@ -3,6 +3,7 @@ class Member < ActiveRecord::Base
   has_many :remittances
   has_many :loans
   has_many :penalties
+  has_many :withdrawals
 
   # Validate Members
   validates :name, presence: true

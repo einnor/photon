@@ -9,7 +9,7 @@ class PenaltyRepayment < ActiveRecord::Base
 
   private
 
-  #Updates corresponding Penalty table
+  # Updates corresponding Penalty table
   def update_penalty
   	penalty = Penalty.find(self.penalty_id)
 

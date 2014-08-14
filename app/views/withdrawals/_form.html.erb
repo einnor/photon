@@ -1,0 +1,30 @@
+<%= form_for(@withdrawal) do |f| %>
+  <% if @withdrawal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@withdrawal.errors.count, "error") %> prohibited this withdrawal from being saved:</h2>
+
+      <ul>
+      <% @withdrawal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :member_id %><br>
+    <%= f.collection_select(:member_id, authorized_members(), :id, :name, :include_blank => "Please select Member", :class=>"form-control") %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount, :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label "Description (Optional)" %><br>
+    <%= f.text_area :description, :class=>"form-control", :rows=>"3" %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit "Submit", :class=>"btn btn-primary" %>
+  </div>
+<% end %>
