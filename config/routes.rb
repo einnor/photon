@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :events
+
   resources :withdrawals
 
   resources :penalty_repayments

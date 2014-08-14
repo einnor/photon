@@ -17,3 +17,7 @@
 #login-box {
 	margin-top: 12px;
 }
+
+.datepicker-days{
+	display: none !important;
+}
