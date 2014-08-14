@@ -2,12 +2,12 @@ class Admin::UsersController < ApplicationController
   
   # Cancan Workaround HACK!!
   before_filter do
-    resource = controller_path.singularize.gsub('/', '_').to_sym
-    method = "#{resource}_params"
-    params[resource] &&= send(method) if respond_to?(method, true)
+    #resource = controller_path.singularize.gsub('/', '_').to_sym
+    #method = "#{resource}_params"
+    #params[resource] &&= send(method) if respond_to?(method, true)
   end
 
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   layout "admin"
 
@@ -81,8 +81,7 @@ class Admin::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params      
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, 
-        :phone_number, :national_id_number)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone_number, :national_id_number)
     end
 
 end
