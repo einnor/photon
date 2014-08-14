@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @remittance.amount %>
+</p>
+
+<p>
+  <strong>Remittance type:</strong>
+  <%= @remittance.remittance_type %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @remittance.member %>
+</p>
+
+<%= link_to 'Edit', edit_remittance_path(@remittance) %> |
+<%= link_to 'Back', remittances_path %>

@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :penalties
+
+  resources :loan_repayments
+
+  resources :loans
+
+  resources :remittances
+
+  resources :members
+
   resources :chamas
 
   get 'home/index'

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Loan amount requested:</strong>
+  <%= @loan.loan_amount_requested %>
+</p>
+
+<p>
+  <strong>Repay period in months:</strong>
+  <%= @loan.repay_period_in_months %>
+</p>
+
+<p>
+  <strong>Interest rate pa:</strong>
+  <%= @loan.interest_rate_pa %>
+</p>
+
+<p>
+  <strong>Loan interest method:</strong>
+  <%= @loan.loan_interest_method %>
+</p>
+
+<p>
+  <strong>Monthly installments:</strong>
+  <%= @loan.monthly_installments %>
+</p>
+
+<p>
+  <strong>Repay amount:</strong>
+  <%= @loan.repay_amount %>
+</p>
+
+<p>
+  <strong>Loan status:</strong>
+  <%= @loan.loan_status %>
+</p>
+
+<p>
+  <strong>Installment repay deadline:</strong>
+  <%= @loan.installment_repay_deadline %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @loan.member %>
+</p>
+
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>

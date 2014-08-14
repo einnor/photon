@@ -1,0 +1,56 @@
+<%= form_for(@loan) do |f| %>
+  <% if @loan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+
+      <ul>
+      <% @loan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :member_id %><br>
+    <%= f.collection_select(:member_id, authorized_members(), :id, :name, :include_blank => "Please select Member", :class=>"form-control") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :loan_amount_requested %><br>
+    <%= f.text_field :loan_amount_requested,:class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :repay_period_in_months %><br>
+    <%= f.number_field :repay_period_in_months,:class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :interest_rate_pa %><br>
+    <%= f.text_field :interest_rate_pa ,:class=>"form-control"%>
+  </div>
+  <div class="field">
+    <%= f.label :loan_interest_method %><br>
+    <%= f.select :loan_interest_method, options_for_select( %w[SIMPLE-INTEREST COMPOUND-INTEREST] ), :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label "Next Installment Repay Deadline" %><br>
+    <%= f.date_select :installment_repay_deadline,:class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :monthly_installments %><br>
+    <%= f.text_field :monthly_installments,:class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :repay_amount %><br>
+    <%= f.text_field :repay_amount,:class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :loan_status %><br>
+    <%= f.select :loan_status, options_for_select( %w[PENDING ACCEPTED REJECTED COMPLETE] ), :class=>"form-control" %>
+  </div>
+  
+  <br />
+  <div class="actions">
+         <%= f.submit "Submit", :class=>"btn btn-primary" %>
+  </div>
+<% end %>

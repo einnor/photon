@@ -1,5 +1,6 @@
 class Chama < ActiveRecord::Base
   belongs_to :user
+  has_many :members
 
   # Validate fields
   validates :name, presence: true

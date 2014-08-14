@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @loan_repayment.amount %>
+</p>
+
+<p>
+  <strong>Loan:</strong>
+  <%= @loan_repayment.loan.member.name %>
+</p>
+
+<%= link_to 'Edit', edit_loan_repayment_path(@loan_repayment) %> |
+<%= link_to 'Back', loan_repayments_path %>

@@ -1,0 +1,32 @@
+<%= form_for(@remittance) do |f| %>
+  <% if @remittance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@remittance.errors.count, "error") %> prohibited this remittance from being saved:</h2>
+
+      <ul>
+      <% @remittance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount ,:class=>"form-control"%>
+  </div>
+  <div class="field">
+    <%= f.label :remittance_type %><br>
+    <%= f.select :remittance_type, options_for_select( %w[REGISTRATION-FEE MONTHLY-CONTRIBUTION SAVINGS] ), :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :member_id %><br>
+    <div class="field">
+    <%= f.label :member_id %><br>
+    <%= f.collection_select(:member_id, authorized_members(), :id, :name, :include_blank => "Please select Member", :class=>"form-control") %>
+  </div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", :class=>"btn btn-primary" %>
+  </div>
+<% end %>

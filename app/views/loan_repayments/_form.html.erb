@@ -1,0 +1,26 @@
+<%= form_for(@loan_repayment) do |f| %>
+  <% if @loan_repayment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loan_repayment.errors.count, "error") %> prohibited this loan_repayment from being saved:</h2>
+
+      <ul>
+      <% @loan_repayment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount,:class=>"form-control"  %>
+  </div>
+  <div class="field">
+    <%= f.label :loan_id %><br>
+    <%= f.collection_select :loan_id, loan_to_repay(),:id,:member_name,:include_blank => "Select Loan to Repay" ,:class=>"form-control"%>
+  </div>
+  <br />
+  <div class="actions">
+     <%= f.submit "Submit", :class=>"btn btn-primary" %>
+  </div>
+<% end %>

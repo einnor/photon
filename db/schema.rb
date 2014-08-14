@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810174248) do
+ActiveRecord::Schema.define(version: 20140814124741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,66 @@ ActiveRecord::Schema.define(version: 20140810174248) do
   end
 
   add_index "chamas", ["user_id"], name: "index_chamas_on_user_id", using: :btree
+
+  create_table "loan_repayments", force: true do |t|
+    t.float    "amount"
+    t.integer  "loan_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "loan_repayments", ["loan_id"], name: "index_loan_repayments_on_loan_id", using: :btree
+
+  create_table "loans", force: true do |t|
+    t.float    "loan_amount_requested"
+    t.integer  "repay_period_in_months"
+    t.float    "interest_rate_pa"
+    t.string   "loan_interest_method"
+    t.float    "monthly_installments"
+    t.float    "repay_amount"
+    t.string   "loan_status"
+    t.date     "installment_repay_deadline"
+    t.integer  "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "loans", ["member_id"], name: "index_loans_on_member_id", using: :btree
+
+  create_table "members", force: true do |t|
+    t.string   "name"
+    t.string   "phone_number"
+    t.string   "occupation"
+    t.string   "national_id_number"
+    t.text     "others"
+    t.integer  "chama_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "members", ["chama_id"], name: "index_members_on_chama_id", using: :btree
+
+  create_table "penalties", force: true do |t|
+    t.string   "penalty_type"
+    t.float    "amount"
+    t.date     "due_date"
+    t.string   "penalty_status"
+    t.integer  "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "penalties", ["member_id"], name: "index_penalties_on_member_id", using: :btree
+
+  create_table "remittances", force: true do |t|
+    t.float    "amount"
+    t.string   "remittance_type"
+    t.integer  "member_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "remittances", ["member_id"], name: "index_remittances_on_member_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
