@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814124741) do
+ActiveRecord::Schema.define(version: 20140814131454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,15 @@ ActiveRecord::Schema.define(version: 20140814124741) do
   end
 
   add_index "penalties", ["member_id"], name: "index_penalties_on_member_id", using: :btree
+
+  create_table "penalty_repayments", force: true do |t|
+    t.float    "amount"
+    t.integer  "penalty_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "penalty_repayments", ["penalty_id"], name: "index_penalty_repayments_on_penalty_id", using: :btree
 
   create_table "remittances", force: true do |t|
     t.float    "amount"

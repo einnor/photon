@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :penalty_repayments
+
   resources :penalties
 
   resources :loan_repayments

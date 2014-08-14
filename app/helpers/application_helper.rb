@@ -17,7 +17,14 @@ module ApplicationHelper
     loans = Loan.where(:member_id => members).where(:loan_status => "ACCEPTED")
    end
 
+   # Fetches only the right Members
    def authorized_members()
    	members = Member.where(:chama_id => current_user.chama.id)
+   end
+
+   # Calculates the Penalties to be repayed
+   def penalty_to_repay
+   	members = Member.where(:chama_id => current_user.chama.id)
+    penalties = Penalty.where(:member_id => members).where(:penalty_status => "NOT-PAYED")
    end
 end
