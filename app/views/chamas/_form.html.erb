@@ -1,8 +1,7 @@
 <%= form_for(@chama) do |f| %>
   <% if @chama.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@chama.errors.count, "error") %> prohibited this chama from being saved:</h2>
-
+      
       <ul>
       <% @chama.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -31,8 +30,9 @@
     <%= f.label :"Chama Administrator" %><br>
     <%= f.collection_select(:user_id, User.all, :id, :name, :include_blank => "Please select chama admin", :class=>"form-control") %>
   </div>
+  <br />
   <div class="actions">
 
-    <%= f.submit "Create", :class=>"btn btn-primary" %>
+    <%= f.submit "Submit", :class=>"btn btn-primary" %>
   </div>
 <% end %>

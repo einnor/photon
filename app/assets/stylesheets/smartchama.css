@@ -21,3 +21,7 @@
 .datepicker-days{
 	display: none !important;
 }
+
+#error_explanation ul li{
+	color: red !important;
+}

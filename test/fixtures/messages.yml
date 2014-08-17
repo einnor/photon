@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  recepient: MyString
+  message_manager_id: 
+
+two:
+  body: MyString
+  recepient: MyString
+  message_manager_id: 

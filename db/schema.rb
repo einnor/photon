@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140814174436) do
+ActiveRecord::Schema.define(version: 20140817130743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,25 @@ ActiveRecord::Schema.define(version: 20140814174436) do
   end
 
   add_index "members", ["chama_id"], name: "index_members_on_chama_id", using: :btree
+
+  create_table "message_managers", force: true do |t|
+    t.integer  "sms_balance"
+    t.integer  "chama_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "message_managers", ["chama_id"], name: "index_message_managers_on_chama_id", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.string   "body"
+    t.string   "recepient"
+    t.integer  "message_manager_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["message_manager_id"], name: "index_messages_on_message_manager_id", using: :btree
 
   create_table "penalties", force: true do |t|
     t.string   "penalty_type"

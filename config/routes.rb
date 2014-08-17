@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :messages
+
+  resources :message_managers
+
   resources :events
 
   resources :withdrawals
@@ -42,4 +46,6 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  # Custom Routes
+  match "messages/msg_manager/:id", :controller => "messages", :action => "msg_manager", :as => :msg_manager, via: [:get]
 end

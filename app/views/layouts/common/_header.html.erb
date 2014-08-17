@@ -29,7 +29,7 @@
                                 <li class="user-header bg-light-blue">
                                     <%= image_tag("avatar3.png", :class=>"img-circle")%>
                                     <p>
-                                        <%= current_user.name %> - Chama Admin
+                                        <%= current_user.name %> - <%= current_user.chama.name %> Admin
                                         <small><%= current_user.created_at.to_formatted_s(:long_ordinal) %></small>
                                     </p>
                                 </li>

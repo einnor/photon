@@ -16,7 +16,7 @@ class ChamasController < ApplicationController
   # GET /chamas
   # GET /chamas.json
   def index
-    @chamas = Chama.all
+    @chamas = Chama.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /chamas/1
@@ -40,7 +40,7 @@ class ChamasController < ApplicationController
 
     respond_to do |format|
       if @chama.save
-        format.html { redirect_to @chama, notice: 'Chama was successfully created.' }
+        format.html { redirect_to chamas_url, notice: 'Chama was successfully created.' }
         format.json { render :show, status: :created, location: @chama }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class ChamasController < ApplicationController
   def update
     respond_to do |format|
       if @chama.update(chama_params)
-        format.html { redirect_to @chama, notice: 'Chama was successfully updated.' }
+        format.html { redirect_to chamas_url, notice: 'Chama was successfully updated.' }
         format.json { render :show, status: :ok, location: @chama }
       else
         format.html { render :edit }

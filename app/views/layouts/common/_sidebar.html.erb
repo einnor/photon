@@ -33,7 +33,7 @@
                         
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-bar-chart-o"></i>
+                                <i class="fa fa-users"></i>
                                 <span>Members</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -45,7 +45,7 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-laptop"></i>
+                                <i class="fa fa-usd"></i>
                                 <span>Remittances</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -69,7 +69,7 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-edit"></i> <span>Penalties</span>
+                                <i class="fa fa-thumbs-down"></i> <span>Penalties</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
@@ -81,7 +81,7 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-laptop"></i>
+                                <i class="fa fa-arrow-circle-down"></i>
                                 <span>Withdrawals</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -102,22 +102,27 @@
                                 
                             </ul>
                         </li>
+                        <li class="treeview">
+                             <a href="#">
+                                <i class="fa fa-envelope"></i> <span>Chama Messaging</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<%= msg_manager_path(correct_message_manager(current_user)) %>"><i class="fa fa-angle-double-right"></i> Message Manager</a></li>
+                                <li><a href="<%= messages_path %>"><i class="fa fa-angle-double-right"></i> MessageBox</a></li>
+                                
+                            </ul>
+                        </li>
                                                                  
                         <li>
                             <a href="#">
-                                <i class="fa fa-envelope"></i> <span>Reports</span>
+                                <i class="fa fa-bar-chart-o"></i> <span>Reports</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <small class="badge pull-right bg-yellow">12</small>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-envelope"></i> <span>Settings</span>
+                                <i class="fa fa-wrench"></i> <span>Settings</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
                         </li>

@@ -1,0 +1,58 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Chama Message Manager
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Message Manager</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+
+    <div class="row">
+    	<% if @message_manager.sms_balance < 10 %>
+    		<div class="alert alert-danger alert-dismissable">
+                <i class="fa fa-ban"></i>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <b>Alert!</b> Your SMS balance is running low. Please top up to avoid service interuptions.
+            </div>
+    	<% end %>
+        
+        <div class="col-md-6">
+            <div class="box box-primary">
+            	<div class="box-header">
+	                <h3 class="box-title">SMS Stats<h3>
+	            </div><!-- /.box-header -->
+                <div class="box-body">
+                    <p id="notice"><%= notice %></p>
+
+						<p>
+						  <strong>Sms balance:</strong>
+						  <%= @message_manager.sms_balance %>
+						</p>
+
+						<p>
+						  <strong>Chama:</strong>
+						  <%= @message_manager.chama.name %>
+						</p>
+                    
+                </div><!-- /.box-body -->
+            </div><!-- /. box -->
+        </div><!-- /.col -->
+        <div class="col-md-6">
+            <div class="box box-primary">
+            	<div class="box-header">
+	                <h3 class="box-title">Top Up SMS<h3>
+	            </div><!-- /.box-header -->
+                <div class="box-body">
+                    <button class="btn btn-success btn-flat">Buy SMS Bundle</button>
+                    
+                </div><!-- /.box-body -->
+            </div><!-- /. box -->
+        </div><!-- /.col -->
+</div><!-- /.row -->

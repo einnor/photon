@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sms balance:</strong>
+  <%= @message_manager.sms_balance %>
+</p>
+
+<p>
+  <strong>Chama:</strong>
+  <%= @message_manager.chama %>
+</p>
+
+<%= link_to 'Edit', edit_message_manager_path(@message_manager) %> |
+<%= link_to 'Back', message_managers_path %>

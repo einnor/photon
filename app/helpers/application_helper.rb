@@ -43,4 +43,9 @@ module ApplicationHelper
 
     contributions_sum
    end
+
+   # Returns Current Users Chama Message Manager
+   def correct_message_manager(current_user)
+    current_user.chama.message_manager
+   end
 end
