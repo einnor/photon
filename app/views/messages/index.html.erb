@@ -1,281 +1,157 @@
 
 <!-- Right side column. Contains the navbar and content of the page -->
           
-                <!-- Content Header (Page header) -->
-                <section class="content-header no-margin">
-                    <h1 class="text-center">
-                        Mailbox
-                    </h1>
-                </section>
+        <!-- Content Header (Page header) -->
+        <section class="content-header no-margin">
+            <h1 class="text-center">
+                Mailbox
+            </h1>
+        </section>
 
-                <!-- Main content -->
-                <section class="content">
-                    <!-- MAILBOX BEGIN -->
-                    <div class="mailbox row">
-                        <div class="col-xs-12">
-                            <div class="box box-solid">
-                                <div class="box-body">
-                                    <div class="row">
-                                        <div class="col-md-3 col-sm-4">
-                                            <!-- BOXES are complex enough to move the .box-header around.
-                                                 This is an example of having the box header within the box body -->
-                                            <div class="box-header">
-                                                <i class="fa fa-inbox"></i>
-                                                <h3 class="box-title">INBOX</h3>
-                                            </div>
-                                            <!-- compose message btn -->
-                                            <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>
-                                            <!-- Navigation - folders-->
-                                            <div style="margin-top: 15px;">
-                                                <ul class="nav nav-pills nav-stacked">
-                                                    <li class="header">Folders</li>
-                                                    <li class="active"><a href="#"><i class="fa fa-inbox"></i> Inbox (14)</a></li>
-                                                    <li><a href="#"><i class="fa fa-pencil-square-o"></i> Drafts</a></li>
-                                                    <li><a href="#"><i class="fa fa-mail-forward"></i> Sent</a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i> Starred</a></li>
-                                                    <li><a href="#"><i class="fa fa-folder"></i> Junk</a></li>
+        <!-- Main content -->
+        <section class="content">
+            <!-- MAILBOX BEGIN -->
+            <div class="mailbox row">
+                <div class="col-xs-12">
+                    <div class="box box-solid">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-4">
+                                    <!-- BOXES are complex enough to move the .box-header around.
+                                         This is an example of having the box header within the box body -->
+                                    <div class="box-header">
+                                        <i class="fa fa-inbox"></i>
+                                        <h3 class="box-title">OUTBOX</h3>
+                                    </div>
+                                    <!-- compose message btn -->
+                                    <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>
+                                    <!-- Navigation - folders-->
+                                    <div style="margin-top: 15px;">
+                                        <ul class="nav nav-pills nav-stacked">
+                                            <li class="header">Folders</li>
+                                            <li class="active"><a href="#"><i class="fa fa-inbox"></i> Inbox (14)</a></li>
+                                            <li><a href="#"><i class="fa fa-pencil-square-o"></i> Drafts</a></li>
+                                            <li><a href="#"><i class="fa fa-mail-forward"></i> Sent</a></li>
+                                            <li><a href="#"><i class="fa fa-star"></i> Starred</a></li>
+                                            <li><a href="#"><i class="fa fa-folder"></i> Junk</a></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /.col (LEFT) -->
+                                <div class="col-md-9 col-sm-8">
+                                    <div class="row pad">
+                                        <div class="col-sm-6">
+                                            <label style="margin-right: 10px;">
+                                                <input type="checkbox" id="check-all"/>
+                                            </label>
+                                            <!-- Action button -->
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default btn-sm btn-flat dropdown-toggle" data-toggle="dropdown">
+                                                    Action <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Mark as read</a></li>
+                                                    <li><a href="#">Mark as unread</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Move to junk</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#">Delete</a></li>
                                                 </ul>
                                             </div>
-                                        </div><!-- /.col (LEFT) -->
-                                        <div class="col-md-9 col-sm-8">
-                                            <div class="row pad">
-                                                <div class="col-sm-6">
-                                                    <label style="margin-right: 10px;">
-                                                        <input type="checkbox" id="check-all"/>
-                                                    </label>
-                                                    <!-- Action button -->
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default btn-sm btn-flat dropdown-toggle" data-toggle="dropdown">
-                                                            Action <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
-                                                            <li><a href="#">Mark as read</a></li>
-                                                            <li><a href="#">Mark as unread</a></li>
-                                                            <li class="divider"></li>
-                                                            <li><a href="#">Move to junk</a></li>
-                                                            <li class="divider"></li>
-                                                            <li><a href="#">Delete</a></li>
-                                                        </ul>
+
+                                        </div>
+                                        <div class="col-sm-6 search-form">
+                                            <form action="#" class="text-right">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control input-sm" placeholder="Search">
+                                                    <div class="input-group-btn">
+                                                        <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                                                     </div>
-
                                                 </div>
-                                                <div class="col-sm-6 search-form">
-                                                    <form action="#" class="text-right">
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control input-sm" placeholder="Search">
-                                                            <div class="input-group-btn">
-                                                                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div><!-- /.row -->
-
-                                            <div class="table-responsive">
-                                                <!-- THE MESSAGES -->
-                                                <table class="table table-mailbox">
-                                                    <tr class="unread">
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr class="unread">
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr class="unread">
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr class="unread">
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                </table>
-                                            </div><!-- /.table-responsive -->
-                                        </div><!-- /.col (RIGHT) -->
+                                            </form>
+                                        </div>
                                     </div><!-- /.row -->
-                                </div><!-- /.box-body -->
-                                <div class="box-footer clearfix">
-                                    <div class="pull-right">
-                                        <small>Showing 1-12/1,240</small>
-                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-left"></i></button>
-                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-right"></i></button>
-                                    </div>
-                                </div><!-- box-footer -->
-                            </div><!-- /.box -->
-                        </div><!-- /.col (MAIN) -->
+
+                                    <div class="table-responsive">
+                                        <!-- THE MESSAGES -->
+                                        <%= will_paginate @messages %>
+                                        <table class="table table-mailbox table stripped">
+                                            
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Recepient</th>
+                                                <th>SMS</th>
+                                                <th>Time Sent</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                            <% @messages.each do |message| %>
+                                                <tr class="unread">
+                                                    <td class="small-col"><input type="checkbox" /></td>
+                                                    <td class="small-col"><i class="fa fa-star"></i></td>
+                                                    <td class="name"><a href="#"><%= member_name_from_phone(message.recepient) %></a></td>
+                                                    <td class="subject">
+                                                        <%= link_to message.body.truncate(40), message,:style=>"color : #367FA9;" %>
+                                                    </td>
+                                                    <td class="time"><%= message.created_at.to_formatted_s(:long_ordinal) %></td>
+                                                    <td>
+                                                        <%= link_to 'Delete', message, method: :delete, data: { confirm: 'Are you sure?' },:style=>"color : red;" %></td>
+                                                </tr>
+                                            <% end -%>
+                                           
+                                        </table>
+                                    </div><!-- /.table-responsive -->
+                                </div><!-- /.col (RIGHT) -->
+                            </div><!-- /.row -->
+                        </div><!-- /.box-body -->
+                       
+                    </div><!-- /.box -->
+                </div><!-- /.col (MAIN) -->
+            </div>
+            <!-- MAILBOX END -->
+
+        </section><!-- /.content -->
+
+
+<!-- COMPOSE MESSAGE MODAL -->
+<div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-envelope-o"></i> Compose New Message</h4>
+            </div>
+            <%= form_for(@message) do |f| %>
+                  <% if @message.errors.any? %>
+                    <div id="error_explanation">
+                      <ul>
+                      <% @message.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
                     </div>
-                    <!-- MAILBOX END -->
-
-                </section><!-- /.content -->
-     
-
-        <!-- COMPOSE MESSAGE MODAL -->
-        <div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title"><i class="fa fa-envelope-o"></i> Compose New Message</h4>
+                  <% end %>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">TO:</span>
+                            <%= f.collection_select(:recepient, authorized_members(), :phone_number, :name, :include_blank => "Please select Member", :class=>"form-control") %>
+                        </div>
                     </div>
-                    <form action="#" method="post">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">TO:</span>
-                                    <input name="email_to" type="email" class="form-control" placeholder="SMS TO">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <textarea name="message" id="email_message" class="form-control" placeholder="Message" style="height: 120px;"></textarea>
-                            </div>
-                            
-                        </div>
-                        <div class="modal-footer clearfix">
+                    
+                    <div class="form-group">
+                        <%= f.text_area :body, :class=>"form-control", :rows =>"3"%>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer clearfix">
 
-                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
+                    <%= f.submit "Submit", :class=>"btn btn-primary" %>
 
-                            <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-envelope"></i> Send Message</button>
-                        </div>
-                    </form>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
+                    <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-envelope"></i> Send Message</button>
+                </div>
+            <% end %>
 
-        <!-- Page script -->
-        <script type="text/javascript">
-            $(function() {
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-                "use strict";
-
-                //iCheck for checkbox and radio inputs
-                $('input[type="checkbox"]').iCheck({
-                    checkboxClass: 'icheckbox_minimal-blue',
-                    radioClass: 'iradio_minimal-blue'
-                });
-
-                //When unchecking the checkbox
-                $("#check-all").on('ifUnchecked', function(event) {
-                    //Uncheck all checkboxes
-                    $("input[type='checkbox']", ".table-mailbox").iCheck("uncheck");
-                });
-                //When checking the checkbox
-                $("#check-all").on('ifChecked', function(event) {
-                    //Check all checkboxes
-                    $("input[type='checkbox']", ".table-mailbox").iCheck("check");
-                });
-                //Handle starring for glyphicon and font awesome
-                $(".fa-star, .fa-star-o, .glyphicon-star, .glyphicon-star-empty").click(function(e) {
-                    e.preventDefault();
-                    //detect type
-                    var glyph = $(this).hasClass("glyphicon");
-                    var fa = $(this).hasClass("fa");
-
-                    //Switch states
-                    if (glyph) {
-                        $(this).toggleClass("glyphicon-star");
-                        $(this).toggleClass("glyphicon-star-empty");
-                    }
-
-                    if (fa) {
-                        $(this).toggleClass("fa-star");
-                        $(this).toggleClass("fa-star-o");
-                    }
-                });
-
-                //Initialize WYSIHTML5 - text editor
-                $("#email_message").wysihtml5();
-            });
-        </script>
-
-
-  
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>Recepient</th>
-      <th>Message manager</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.body %></td>
-        <td><%= message.recepient %></td>
-        <td><%= message.message_manager %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Message', new_message_path %>

@@ -71,4 +71,14 @@ module ApplicationHelper
     end
     nil
   end
+
+  # Retrieves users name given a phone number
+  def member_name_from_phone(tel)
+    mem = Member.where(:phone_number => tel)
+    res = 'Member Name'
+    mem.each do | m |
+       res = m.name 
+    end
+    res
+  end
 end

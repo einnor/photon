@@ -1,31 +1,48 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Chama Message Manager
+        Messages
         <small>Control panel</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Message Manager</li>
+        <li class="active">messages</li>
     </ol>
 </section>
 
-<p id="notice"><%= notice %></p>
+<!-- Main content -->
+<section class="content">
 
-<p>
-  <strong>Body:</strong>
-  <%= @message.body %>
-</p>
 
-<p>
-  <strong>Recepient:</strong>
-  <%= @message.recepient %>
-</p>
+    <div class="row">
+        
+        <div class="col-md-6 col-md-offset-2">
+            <div class="box box-primary">
+              <div class="box-header">
+                  <h3 class="box-title">SMS Details<h3>
+              </div><!-- /.box-header -->
+                <div class="box-body">
+                  <p>
+                    <strong>Recepient:</strong>
+                    <%= @message.recepient %> < <%= member_name_from_phone(@message.recepient)%> >
+                  </p>
+                  <br />
+                  <p>
+                    <strong>Body:</strong>
+                    <%= @message.body %>
+                  </p>
 
-<p>
-  <strong>Message manager:</strong>
-  <%= @message.message_manager %>
-</p>
+                  <br />
 
-<%= link_to 'Edit', edit_message_path(@message) %> |
-<%= link_to 'Back', messages_path %>
+                  <p>
+                    <strong>Message Sender:</strong>
+                    <%= @message.message_manager.chama.name %>
+                  </p>
+
+                  <%= link_to 'Back', messages_path %>
+                    
+                </div><!-- /.box-body -->
+            </div><!-- /. box -->
+        </div><!-- /.col -->
+        
+</div><!-- /.row -->
