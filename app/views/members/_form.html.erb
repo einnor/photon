@@ -16,8 +16,8 @@
     <%= f.text_field :name ,:class=>"form-control"%>
   </div>
   <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number,:class=>"form-control" %>
+    <%= f.label "Phone Number (Include country code)" %><br>
+    <%= f.text_field :phone_number,:class=>"form-control", :placeholder => "+254 727 890 762" %>
   </div>
   <div class="field">
     <%= f.label :occupation %><br>

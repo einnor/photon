@@ -6,7 +6,7 @@
 <!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <html>
 <head>
-  <title>SmartChama | Run your Chama the Smart way</title>
+  <title><%= full_title(yield(:title)) %></title>
 
   <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
@@ -23,8 +23,6 @@
 <body>
 
   <%= render 'layouts/common/header' %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
     <div class="skin-blue">     
         <div class="wrapper row-offcanvas row-offcanvas-left">
@@ -33,7 +31,11 @@
 	          
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
-
+              <div class="row">
+                  <div class="col-md-6 col-md-offset-2">
+                    <%= flash_messages %>
+                  </div>
+              </div>
               <%= yield %>
 
             </aside><!-- /.right-side -->

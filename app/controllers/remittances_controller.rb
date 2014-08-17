@@ -29,7 +29,7 @@ class RemittancesController < ApplicationController
 
     respond_to do |format|
       if @remittance.save
-        format.html { redirect_to @remittance, notice: 'Remittance was successfully created.' }
+        format.html { redirect_to remittances_url, notice: 'Remittance was successfully created.' }
         format.json { render :show, status: :created, location: @remittance }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class RemittancesController < ApplicationController
   def update
     respond_to do |format|
       if @remittance.update(remittance_params)
-        format.html { redirect_to @remittance, notice: 'Remittance was successfully updated.' }
+        format.html { redirect_to remittances_url, notice: 'Remittance was successfully updated.' }
         format.json { render :show, status: :ok, location: @remittance }
       else
         format.html { render :edit }

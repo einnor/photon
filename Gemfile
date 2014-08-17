@@ -55,6 +55,12 @@ gem 'jquery-turbolinks'
 # Server static assets 
 gem 'rails_12factor', group: :production
 
+# Required by AfricaIsTalking Gateway
+gem 'json'
+
+# Required by AfricaIsTalking Gateway
+gem 'curb'
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'

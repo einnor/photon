@@ -30,7 +30,7 @@ class PenaltyRepaymentsController < ApplicationController
 
     respond_to do |format|
       if @penalty_repayment.save
-        format.html { redirect_to @penalty_repayment, notice: 'Penalty repayment was successfully created.' }
+        format.html { redirect_to penalty_repayments_url, notice: 'Penalty repayment was successfully created.' }
         format.json { render :show, status: :created, location: @penalty_repayment }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class PenaltyRepaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @penalty_repayment.update(penalty_repayment_params)
-        format.html { redirect_to @penalty_repayment, notice: 'Penalty repayment was successfully updated.' }
+        format.html { redirect_to penalty_repayments_url, notice: 'Penalty repayment was successfully updated.' }
         format.json { render :show, status: :ok, location: @penalty_repayment }
       else
         format.html { render :edit }

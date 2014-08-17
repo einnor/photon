@@ -30,7 +30,7 @@ class LoanRepaymentsController < ApplicationController
 
     respond_to do |format|
       if @loan_repayment.save
-        format.html { redirect_to @loan_repayment, notice: 'Loan repayment was successfully created.' }
+        format.html { redirect_to loan_repayments_url, notice: 'Loan repayment was successfully created.' }
         format.json { render :show, status: :created, location: @loan_repayment }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class LoanRepaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @loan_repayment.update(loan_repayment_params)
-        format.html { redirect_to @loan_repayment, notice: 'Loan repayment was successfully updated.' }
+        format.html { redirect_to loan_repayments_url, notice: 'Loan repayment was successfully updated.' }
         format.json { render :show, status: :ok, location: @loan_repayment }
       else
         format.html { render :edit }

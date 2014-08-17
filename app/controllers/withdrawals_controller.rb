@@ -29,7 +29,7 @@ class WithdrawalsController < ApplicationController
 
     respond_to do |format|
       if @withdrawal.save
-        format.html { redirect_to @withdrawal, notice: 'Withdrawal was successfully created.' }
+        format.html { redirect_to withdrawals_url, notice: 'Withdrawal was successfully created.' }
         format.json { render :show, status: :created, location: @withdrawal }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class WithdrawalsController < ApplicationController
   def update
     respond_to do |format|
       if @withdrawal.update(withdrawal_params)
-        format.html { redirect_to @withdrawal, notice: 'Withdrawal was successfully updated.' }
+        format.html { redirect_to withdrawals_url, notice: 'Withdrawal was successfully updated.' }
         format.json { render :show, status: :ok, location: @withdrawal }
       else
         format.html { render :edit }
