@@ -1,0 +1,55 @@
+<%= form_for(@service_fee) do |f| %>
+  <% if @service_fee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@service_fee.errors.count, "error") %> prohibited this service_fee from being saved:</h2>
+
+      <ul>
+      <% @service_fee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :payment_type %><br>
+    <%= f.select :payment_type, options_for_select( %w[RECUR-FEE REGISTRATION-FEE] ), :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount, :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label "Description (Optional)" %><br>
+    <%= f.text_area :description, :class=>"form-control", :rows =>"3"%>
+
+  </div>
+  <div class="field">
+    <%= f.label :next_payment_due_date %><br>
+    <%= f.date_select :next_payment_due_date, :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :service_status %><br>
+    <%= f.select :service_status, options_for_select( %w[PENDING OK DEFAULTED TERMINATED] ), :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :txn_status %><br>
+    <%= f.select :txn_status, options_for_select( %w[PENDING COMPLETE FAILED] ), :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :pesapal_txn_tracking_id %><br>
+    <%= f.text_field :pesapal_txn_tracking_id, :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :pesapal_merchant_reference %><br>
+    <%= f.text_field :pesapal_merchant_reference, :class=>"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :chama_id %><br>
+    <%= f.collection_select(:chama_id, Chama.all, :id, :name, :include_blank => "Please select Chama", :class=>"form-control") %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit "Submit", :class=>"btn btn-primary" %>
+  </div>
+<% end %>

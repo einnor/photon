@@ -4,6 +4,7 @@ class Chama < ActiveRecord::Base
   has_many :events
   has_one :message_manager
   has_many :sms_fees
+  has_many :service_fees
 
   # Validate fields
   validates :name, presence: true

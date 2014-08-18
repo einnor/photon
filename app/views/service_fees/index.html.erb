@@ -1,0 +1,64 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Service Fee
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">service fee</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+                  <div class="box-header">
+                      <h3 class="box-title">All Service Charge Transactions </h3>
+                  </div><!-- /.box-header -->
+                  <%= will_paginate @service_fees %>
+                  <div class="box-body no-padding">
+                      <table class="table table-striped">
+                          <tr>
+                            <th>#</th>
+                            <th>Payment type</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Next payment due date</th>
+                            <th>Service status</th>
+                            <th>Txn status</th>
+                            <th>Pesapal txn tracking</th>
+                            <th>Pesapal merchant reference</th>
+                            <th>Chama</th>
+                            <th>Actions</th>
+                          </tr>
+                                                
+                        <% @service_fees.each do |service_fee| %>
+                        <tr>
+                          <td><%= link_to service_fee.id, '#' %></td>
+                          <td><%= service_fee.payment_type %></td>
+                          <td><%= service_fee.amount %></td>
+                          <td><%= service_fee.description %></td>
+                          <td><%= service_fee.next_payment_due_date %></td>
+                          <td><%= service_fee.service_status %></td>
+                          <td><%= service_fee.txn_status %></td>
+                          <td><%= service_fee.pesapal_txn_tracking_id %></td>
+                          <td><%= service_fee.pesapal_merchant_reference %></td>
+                          <td><%= service_fee.chama %></td>
+                          <td>
+                            <%= link_to 'Edit', edit_service_fee_path(service_fee) %>
+                            <%= link_to 'Delete', service_fee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                      <% end %>
+                          
+                      </table>
+
+
+                      <%= link_to "New Service Charge", new_service_fee_path, :class => 'btn btn-primary' %>
+                  </div><!-- /.box-body -->
+              </div><!-- /.box -->
+        </div>
+    </div>
+</section>

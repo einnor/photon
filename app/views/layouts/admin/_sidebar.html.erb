@@ -57,7 +57,7 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-laptop"></i>
+                                <i class="fa fa-envelope"></i>
                                 <span>Chamas Messaging</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -78,27 +78,25 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-table"></i> <span>Service Payments</span>
+                                <i class="fa fa-usd"></i> <span>Service Payments</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> All Payments</a></li>
-                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Add a Payment</a></li>
+                                <li><a href="<%= service_fees_path %>"><i class="fa fa-angle-double-right"></i> All Payments</a></li>
+                                <li><a href="<%= new_service_fee_path %>"><i class="fa fa-angle-double-right"></i> Add a Payment</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Due Payments</a></li>
                                 <li><a href="#"><i class="fa fa-angle-double-right"></i> Terminated Services</a></li>
                             </ul>
                         </li>
-                        <li>
+                        <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-calendar"></i> <span>Calendar</span>
-                                <small class="badge pull-right bg-red">3</small>
+                                <i class="fa fa-wrench"></i> <span>Settings</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <small class="badge pull-right bg-yellow">12</small>
-                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<%= sms_fees_path %>"><i class="fa fa-angle-double-right"></i> All Settings</a></li>
+                                <li><a href="<%= sms_fees_path %>"><i class="fa fa-angle-double-right"></i> Configure Chama</a></li>
+                            </ul>
                         </li>
                         
                     </ul>
