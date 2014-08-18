@@ -1,9 +1,9 @@
 class Member < ActiveRecord::Base
   belongs_to :chama
-  has_many :remittances
-  has_many :loans
-  has_many :penalties
-  has_many :withdrawals
+  has_many :remittances, dependent: :destroy
+  has_many :loans, dependent: :destroy
+  has_many :penalties, dependent: :destroy
+  has_many :withdrawals, dependent: :destroy
 
   # Validate Members
   validates :name, presence: true

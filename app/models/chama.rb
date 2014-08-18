@@ -1,10 +1,12 @@
 class Chama < ActiveRecord::Base
   belongs_to :user
-  has_many :members
-  has_many :events
-  has_one :message_manager
-  has_many :sms_fees
-  has_many :service_fees
+  has_many :members, dependent: :destroy
+  
+  has_many :events, dependent: :destroy
+  has_one :message_manager, dependent: :destroy
+  has_many :sms_fees, dependent: :destroy
+  has_many :service_feesing, dependent: :destroy
+  has_one :setting, dependent: :destroy
 
   # Validate fields
   validates :name, presence: true

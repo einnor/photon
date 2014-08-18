@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Remittance deadline:</strong>
+  <%= @setting.remittance_deadline %>
+</p>
+
+<p>
+  <strong>Warning days before deadline:</strong>
+  <%= @setting.warning_days_before_deadline %>
+</p>
+
+<p>
+  <strong>Remittance reminder sms:</strong>
+  <%= @setting.remittance_reminder_sms %>
+</p>
+
+<p>
+  <strong>Penalty reminder sms:</strong>
+  <%= @setting.penalty_reminder_sms %>
+</p>
+
+<p>
+  <strong>Penalty type:</strong>
+  <%= @setting.penalty_type %>
+</p>
+
+<p>
+  <strong>Penalty amount:</strong>
+  <%= @setting.penalty_amount %>
+</p>
+
+<p>
+  <strong>Penalty repay periods in days:</strong>
+  <%= @setting.penalty_repay_periods_in_days %>
+</p>
+
+<p>
+  <strong>Chama:</strong>
+  <%= @setting.chama %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

@@ -46,7 +46,7 @@
                           <td><%= service_fee.txn_status %></td>
                           <td><%= service_fee.pesapal_txn_tracking_id %></td>
                           <td><%= service_fee.pesapal_merchant_reference %></td>
-                          <td><%= service_fee.chama %></td>
+                          <td><%= service_fee.chama.name %></td>
                           <td>
                             <%= link_to 'Edit', edit_service_fee_path(service_fee) %>
                             <%= link_to 'Delete', service_fee, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  remittance_deadline: 2014-08-18
+  warning_days_before_deadline: 1
+  remittance_reminder_sms: MyText
+  penalty_reminder_sms: MyText
+  penalty_type: MyString
+  penalty_amount: 1.5
+  penalty_repay_periods_in_days: 1
+  chama_id: 
+
+two:
+  remittance_deadline: 2014-08-18
+  warning_days_before_deadline: 1
+  remittance_reminder_sms: MyText
+  penalty_reminder_sms: MyText
+  penalty_type: MyString
+  penalty_amount: 1.5
+  penalty_repay_periods_in_days: 1
+  chama_id: 

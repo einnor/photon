@@ -1,0 +1,49 @@
+<%= form_for(@setting) do |f| %>
+  <% if @setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+      <% @setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :remittance_deadline %><br>
+    <%= f.date_select :remittance_deadline %>
+  </div>
+  <div class="field">
+    <%= f.label :warning_days_before_deadline %><br>
+    <%= f.number_field :warning_days_before_deadline %>
+  </div>
+  <div class="field">
+    <%= f.label :remittance_reminder_sms %><br>
+    <%= f.text_area :remittance_reminder_sms %>
+  </div>
+  <div class="field">
+    <%= f.label :penalty_reminder_sms %><br>
+    <%= f.text_area :penalty_reminder_sms %>
+  </div>
+  <div class="field">
+    <%= f.label :penalty_type %><br>
+    <%= f.text_field :penalty_type %>
+  </div>
+  <div class="field">
+    <%= f.label :penalty_amount %><br>
+    <%= f.text_field :penalty_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :penalty_repay_periods_in_days %><br>
+    <%= f.number_field :penalty_repay_periods_in_days %>
+  </div>
+  <div class="field">
+    <%= f.label :chama_id %><br>
+    <%= f.text_field :chama_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

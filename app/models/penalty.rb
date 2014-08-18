@@ -1,6 +1,6 @@
 class Penalty < ActiveRecord::Base
   	belongs_to :member
-  	has_many :penalty_repayments
+  	has_many :penalty_repayments, dependent: :destroy
 
 	# Validate all fields
 	validates :penalty_type, presence: true

@@ -1,6 +1,6 @@
 class Loan < ActiveRecord::Base
   	belongs_to :member
-  	has_many :loan_repayments
+  	has_many :loan_repayments, dependent: :destroy
 
 
 	# Validate all fields

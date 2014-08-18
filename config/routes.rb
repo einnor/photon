@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :settings
+
   resources :service_fees
 
   resources :sms_fees
