@@ -1,0 +1,23 @@
+<%= form_for(@sms_fee) do |f| %>
+  <% if @sms_fee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sms_fee.errors.count, "error") %> prohibited this sms_fee from being saved:</h2>
+
+      <ul>
+      <% @sms_fee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :package %><br>
+    <%= f.select :package, options_for_select( %w[100-SMS@KES-200 500-SMS@KES-1000 1000-SMS@KES-2000] ), :class=>"form-control" %>
+  </div>  
+
+  <br />
+  <div class="actions">
+    <%= f.submit "Submit", :class=>"btn btn-primary" %>
+  </div>
+<% end %>

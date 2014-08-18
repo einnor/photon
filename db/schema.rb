@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817130743) do
+ActiveRecord::Schema.define(version: 20140818072835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,6 +138,19 @@ ActiveRecord::Schema.define(version: 20140817130743) do
     t.integer "role_id"
     t.integer "user_id"
   end
+
+  create_table "sms_fees", force: true do |t|
+    t.string   "package"
+    t.float    "amount"
+    t.string   "txn_status"
+    t.string   "pesapal_txn_tracking_id"
+    t.string   "pesapal_merchant_reference"
+    t.integer  "chama_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sms_fees", ["chama_id"], name: "index_sms_fees_on_chama_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

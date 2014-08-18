@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  package: MyString
+  amount: 1.5
+  txn_status: MyString
+  pesapal_txn_tracking_id: MyString
+  pesapal_merchant_reference: MyString
+  chama_id: 
+
+two:
+  package: MyString
+  amount: 1.5
+  txn_status: MyString
+  pesapal_txn_tracking_id: MyString
+  pesapal_merchant_reference: MyString
+  chama_id: 

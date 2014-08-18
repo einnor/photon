@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
   # Gets chamas message manager
   # GET /messages/msg_manager/:id
   def msg_manager
+    @sms_fees = SmsFee.where(:chama_id => current_user.chama.id).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /messages/new

@@ -3,6 +3,7 @@ class Chama < ActiveRecord::Base
   has_many :members
   has_many :events
   has_one :message_manager
+  has_many :sms_fees
 
   # Validate fields
   validates :name, presence: true
