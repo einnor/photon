@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818083737) do
+ActiveRecord::Schema.define(version: 20140818174029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,6 +154,21 @@ ActiveRecord::Schema.define(version: 20140818083737) do
   end
 
   add_index "service_fees", ["chama_id"], name: "index_service_fees_on_chama_id", using: :btree
+
+  create_table "settings", force: true do |t|
+    t.date     "remittance_deadline"
+    t.integer  "warning_days_before_deadline"
+    t.text     "remittance_reminder_sms"
+    t.text     "penalty_reminder_sms"
+    t.string   "penalty_type"
+    t.float    "penalty_amount"
+    t.integer  "penalty_repay_periods_in_days"
+    t.integer  "chama_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["chama_id"], name: "index_settings_on_chama_id", using: :btree
 
   create_table "sms_fees", force: true do |t|
     t.string   "package"

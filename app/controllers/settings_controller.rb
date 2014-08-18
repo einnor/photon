@@ -1,4 +1,16 @@
 class SettingsController < ApplicationController
+  
+  # Cancan Workaround HACK!!
+  before_filter do
+    resource = controller_path.singularize.gsub('/', '_').to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+
+  load_and_authorize_resource
+
+  layout "admin"
+
   before_action :set_setting, only: [:show, :edit, :update, :destroy]
 
   # GET /settings
@@ -10,6 +22,12 @@ class SettingsController < ApplicationController
   # GET /settings/1
   # GET /settings/1.json
   def show
+    @service_fee = ServiceFee.where(:chama_id => @setting.chama_id).last
+
+    #If a chama is logged in load chamas layout
+    if current_user.role_ids == [2] 
+      render(:layout => "layouts/application")
+    end
   end
 
   # GET /settings/new
@@ -19,6 +37,10 @@ class SettingsController < ApplicationController
 
   # GET /settings/1/edit
   def edit
+    #If a chama is logged in load chamas layout
+    if current_user.role_ids == [2] 
+      render(:layout => "layouts/application")
+    end
   end
 
   # POST /settings

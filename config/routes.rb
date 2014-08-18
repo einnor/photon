@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   get 'home/passthrough'
 
+  get 'home/service_suspended'
+
   get 'admin/admin/index'
 
   devise_for :users

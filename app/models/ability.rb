@@ -10,6 +10,7 @@ class Ability
       can :manage, Chama do |chama|
         chama.try(:owner) == user
       end
+      can :manage, Setting 
     else
       can :read, :all
     end
