@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
   before_action :set_message_manager, only: [:msg_manager]
+  before_action :check_chama_service_validity
 
   # GET /messages
   # GET /messages.json

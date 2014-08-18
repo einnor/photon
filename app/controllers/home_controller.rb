@@ -12,21 +12,10 @@ class HomeController < ApplicationController
   end
 
   def passthrough
-    #check whether chama has renewed service
-    @service_fee = ServiceFee.where(:chama_id => current_user.chama.id).last
-
     if current_user.role? :admin
       redirect_to admin_admin_index_path
     elsif current_user.role_ids == [2] 
-      
-      # Check if user has renewed service
-      if @service_fee.service_status != "OK"
-        # Service not renewed or service status is not OK
-        redirect_to home_service_suspended_path
-      else
-        # Service status is OK
-        redirect_to home_dashboard_path
-      end    
+      check_chama_service_validity
     end
   end
 
@@ -37,17 +26,7 @@ class HomeController < ApplicationController
 
   # Chama homepage
   def dashboard
-    #check whether chama has renewed service
-    @service_fee = ServiceFee.where(:chama_id => current_user.chama.id).last
-    
-    # Check if user has renewed service
-    if @service_fee.service_status != "OK"
-      # Service not renewed or service status is not OK
-      redirect_to home_service_suspended_path
-    else
-      # Service status is OK
-      redirect_to home_dashboard_path
-    end    
+    check_chama_service_validity  
   end
 
   # Contact us page

@@ -12,6 +12,7 @@ class ServiceFeesController < ApplicationController
   layout "admin"
 
   before_action :set_service_fee, only: [:show, :edit, :update, :destroy]
+  before_action :check_chama_service_validity
 
   # GET /service_fees
   # GET /service_fees.json

@@ -1,5 +1,6 @@
 class PenaltiesController < ApplicationController
   before_action :set_penalty, only: [:show, :edit, :update, :destroy]
+  before_action :check_chama_service_validity
 
   # GET /penalties
   # GET /penalties.json

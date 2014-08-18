@@ -1,5 +1,6 @@
 class WithdrawalsController < ApplicationController
   before_action :set_withdrawal, only: [:show, :edit, :update, :destroy]
+  before_action :check_chama_service_validity
 
   # GET /withdrawals
   # GET /withdrawals.json

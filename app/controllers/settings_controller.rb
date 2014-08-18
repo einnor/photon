@@ -12,6 +12,7 @@ class SettingsController < ApplicationController
   layout "admin"
 
   before_action :set_setting, only: [:show, :edit, :update, :destroy]
+  before_action :check_chama_service_validity
 
   # GET /settings
   # GET /settings.json

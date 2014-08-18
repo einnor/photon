@@ -12,6 +12,7 @@ class MessageManagersController < ApplicationController
   layout "admin"
 
   before_action :set_message_manager, only: [:show, :edit, :update, :destroy]
+  before_action :check_chama_service_validity
 
   # GET /message_managers
   # GET /message_managers.json

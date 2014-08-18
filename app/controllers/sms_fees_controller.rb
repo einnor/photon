@@ -1,5 +1,6 @@
 class SmsFeesController < ApplicationController
   before_action :set_sms_fee, only: [:show, :edit, :update, :destroy]
+  before_action :check_chama_service_validity
 
   # GET /sms_fees
   # GET /sms_fees.json

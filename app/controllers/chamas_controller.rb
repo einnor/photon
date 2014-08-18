@@ -12,6 +12,7 @@ class ChamasController < ApplicationController
   layout "admin"
 
   before_action :set_chama, only: [:show, :edit, :update, :destroy]
+  before_action :check_chama_service_validity
 
   # GET /chamas
   # GET /chamas.json

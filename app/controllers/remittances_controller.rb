@@ -1,5 +1,6 @@
 class RemittancesController < ApplicationController
   before_action :set_remittance, only: [:show, :edit, :update, :destroy]
+  before_action :check_chama_service_validity
 
   # GET /remittances
   # GET /remittances.json

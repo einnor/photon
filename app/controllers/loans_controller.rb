@@ -1,5 +1,6 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :edit, :update, :destroy]
+  before_action :check_chama_service_validity
 
   # GET /loans
   # GET /loans.json
