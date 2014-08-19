@@ -8,11 +8,12 @@ class SettingsController < ApplicationController
   end
 
   load_and_authorize_resource
+  before_filter :authenticate_user!
 
   layout "admin"
 
   before_action :set_setting, only: [:show, :edit, :update, :destroy]
-  before_action :check_chama_service_validity
+  #before_action :check_chama_service_validity
 
   # GET /settings
   # GET /settings.json

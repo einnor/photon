@@ -8,11 +8,12 @@ class ServiceFeesController < ApplicationController
   end
 
   load_and_authorize_resource
+  before_filter :authenticate_user!
 
   layout "admin"
 
   before_action :set_service_fee, only: [:show, :edit, :update, :destroy]
-  before_action :check_chama_service_validity
+  #before_action :check_chama_service_validity
 
   # GET /service_fees
   # GET /service_fees.json

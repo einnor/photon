@@ -1,4 +1,6 @@
 class LoanRepaymentsController < ApplicationController
+  
+  before_filter :authenticate_user!
   before_action :set_loan_repayment, only: [:show, :edit, :update, :destroy]
   before_action :check_chama_service_validity
 

@@ -1,5 +1,7 @@
 class MembersController < ApplicationController
   
+  before_filter :authenticate_user!
+  
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   before_action :check_chama_service_validity
 

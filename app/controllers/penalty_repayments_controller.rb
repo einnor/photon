@@ -1,4 +1,7 @@
 class PenaltyRepaymentsController < ApplicationController
+  
+  before_filter :authenticate_user!
+  
   before_action :set_penalty_repayment, only: [:show, :edit, :update, :destroy]
   before_action :check_chama_service_validity
 
