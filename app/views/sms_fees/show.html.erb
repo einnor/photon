@@ -65,7 +65,10 @@
                   <h3 class="box-title">Checkout<h3>
               </div><!-- /.box-header -->
                 <div class="box-body">
-                    <button class="btn btn-success btn-flat">Check Out With Pesapal</button>
+                    <button class="btn btn-success btn-flat">Check Out With</button>
+                    <%= link_to @pesapal_url do %>  
+                      <%= image_tag("pesapal.jpeg")%>
+                    <% end %>
                     
                 </div><!-- /.box-body -->
             </div><!-- /. box -->

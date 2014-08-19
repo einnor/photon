@@ -15,6 +15,20 @@ class SmsFeesController < ApplicationController
   # GET /sms_fees/1
   # GET /sms_fees/1.json
   def show
+    # Handle pesapal
+    @pesapal = SmsFeesHelper::PesaPalInterface.new
+    @pesapal.set_sms_bundle_details(@sms_fee, current_user)
+    
+    @pesapal_url = @pesapal.do_payment
+  end
+
+  def check_out
+  end
+
+  def pesapal_success
+  end
+
+  def pesapal_ipn
   end
 
   # GET /sms_fees/new

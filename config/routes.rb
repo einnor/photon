@@ -4,7 +4,13 @@ Rails.application.routes.draw do
 
   resources :service_fees
 
-  resources :sms_fees
+  resources :sms_fees do
+    collection do
+      get :pesapal_success
+      get :pesapal_ipn
+    end
+  end
+
 
   resources :messages
 
@@ -55,5 +61,6 @@ Rails.application.routes.draw do
   end
 
   # Custom Routes
+  match "sms_fees/check_out/:id", :controller => "sms_fees", :action => "check_out", :as => :sms_check_out, via: [:get]
   match "messages/msg_manager/:id", :controller => "messages", :action => "msg_manager", :as => :msg_manager, via: [:get]
 end
