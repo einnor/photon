@@ -61,6 +61,9 @@ gem 'json'
 # Required by AfricaIsTalking Gateway
 gem 'curb'
 
+# Handle payments through Pesapal Gateway
+gem 'pesapal'
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'
