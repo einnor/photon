@@ -26,7 +26,7 @@
                               <th>#</th>
                               <th>Amount</th>
                               <th>Description</th>
-                              <th>Member</th>
+                              <th>Chama</th>
                               <th>Trasanction Date</th>
                               <th>Actions </th>
                             </tr>
@@ -38,7 +38,7 @@
                                 <td><%= withdrawal.id %></td>
                                 <td><%= link_to withdrawal.amount, withdrawal %></td>
                                 <td><%= withdrawal.description %></td>
-                                <td><%= withdrawal.member.name %></td>
+                                <td><%= withdrawal.chama.name %></td>
                                 <td>
                                     <%= withdrawal.created_at.to_formatted_s(:long_ordinal) %>
                                 </td>

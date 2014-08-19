@@ -5,8 +5,7 @@ class WithdrawalsController < ApplicationController
   # GET /withdrawals
   # GET /withdrawals.json
   def index
-    members = Member.where(:chama_id => current_user.chama.id)
-    @withdrawals = Withdrawal.where(:member_id => members).paginate(:page => params[:page], :per_page => 10)
+    @withdrawals = Withdrawal.where(:chama_id => current_user.chama.id).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /withdrawals/1
@@ -27,6 +26,7 @@ class WithdrawalsController < ApplicationController
   # POST /withdrawals.json
   def create
     @withdrawal = Withdrawal.new(withdrawal_params)
+    @withdrawal.chama_id = current_user.chama.id
 
     respond_to do |format|
       if @withdrawal.save
@@ -71,6 +71,6 @@ class WithdrawalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def withdrawal_params
-      params.require(:withdrawal).permit(:amount, :description, :member_id)
+      params.require(:withdrawal).permit(:amount, :description, :chama_id)
     end
 end

@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :member_id %><br>
-    <%= f.collection_select(:member_id, authorized_members(), :id, :name, :include_blank => "Please select Member", :class=>"form-control") %>
-  </div>
-  <div class="field">
     <%= f.label :amount %><br>
     <%= f.text_field :amount, :class=>"form-control" %>
   </div>

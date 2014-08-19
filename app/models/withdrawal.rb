@@ -1,11 +1,11 @@
 class Withdrawal < ActiveRecord::Base
-  belongs_to :member
+  belongs_to :chama
 
   before_save :validate_withdrawal
   
   # Validate fields
   validates :description, presence: true
-  validates :member_id, presence: true
+  validates :chama_id, presence: true
   validates_numericality_of :amount, :greater_than_or_equal_to => 1
 
 
@@ -13,8 +13,7 @@ class Withdrawal < ActiveRecord::Base
 
   # Validates Member's withdrawal transaction
   def validate_withdrawal
-  	balance = member_current_savings(self.member_id)
-
+  	balance = chama_current_savings
   	if(self.amount > balance)
   		begin      	      
 	      self.save
@@ -24,18 +23,28 @@ class Withdrawal < ActiveRecord::Base
   	end
   end
 
-   # Calculates Member's current savings
-   def member_current_savings(member_id)
+   # Calculates Chama's current savings
+   def chama_current_savings
+    chama_id = self.chama_id
+    chama_members = Member.where(:chama_id => chama_id)
 
     # Check last withdrawal date
-    last_withdrawal_txn = Withdrawal.where(:member_id => member_id).last
+    withdrawal_txns = Withdrawal.where(:chama_id => chama_id)
+
+    # Sum all withdrawals
+    total_withdrawals = 0
+
 
     # Fetch all remittances of the member in question since last withdrawal
-    if last_withdrawal_txn.blank?
-      contributions = Remittance.where(:member_id => member_id)
+    if withdrawal_txns.blank?
+      contributions = Remittance.where(:member_id => chama_members)
     else
       # Bug here..fix it later
-      contributions = Remittance.where(:member_id => member_id).where(:created_at > last_withdrawal_txn.created_at)
+      withdrawal_txns.each do | w_txn |
+        total_withdrawals += w_txn.amount
+      end
+
+      contributions = Remittance.where(:member_id => chama_members)
     end
 
     # Sum all contributions
@@ -45,6 +54,6 @@ class Withdrawal < ActiveRecord::Base
       contributions_sum += contrib.amount
     end
 
-    contributions_sum
+    contributions_sum - total_withdrawals
    end
 end

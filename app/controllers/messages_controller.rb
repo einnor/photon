@@ -34,15 +34,23 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-    @message.message_manager_id = correct_message_manager(current_user)
-
-    # Send SMS Here
-    if (!@message.recepient.blank? && !@message.body.blank?)
-      #send_sms(@message.recepient, @message.body)
-    end
+    @message_manager = correct_message_manager(current_user)
+    @message.message_manager_id = @message_manager.id
 
     respond_to do |format|
       if @message.save
+
+        # Send SMS Here
+        if (!@message.recepient.blank? && !@message.body.blank?)
+
+          # Check if user has balance
+          if @message_manager.sms_balance > 0
+           send_sms(@message.recepient, @message.body,@message)
+          else
+            @message.update_AIT_reponse("ERROR", "LOW-SMS-BALANCE", "ERROR", "ERROR")
+          end
+        end
+
         format.html { redirect_to messages_url, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
@@ -84,7 +92,7 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:body, :recepient, :message_manager_id)
+      params.require(:message).permit(:body, :recepient, :message_manager_id, :number, :cost, :status, :msg_id)
     end
 
     def set_message_manager
@@ -93,15 +101,15 @@ class MessagesController < ApplicationController
 
     # Returns Current Users Chama Message Manager
     def correct_message_manager(current_user)
-     current_user.chama.message_manager.id
+     current_user.chama.message_manager
     end
 
     # Send an SMS
-    def send_sms(to, message)
+    def send_sms(to, message, message_obj)
 
       # Specify your login credentials
       username = "trendprosystems";
-      apikey   = "MyAfricasTalkingAPIKey";
+      apikey   = "1f60b6b8df1951d9d7b8447c58c22a27488096fc7181e5177397d146f0036b6c";
 
       # Specify the numbers that you want to send to in a comma-separated list
       # Please ensure you include the country code (+254 for Kenya in this case)
@@ -120,10 +128,16 @@ class MessagesController < ApplicationController
         reports = gateway.send_message(to, message)
         reports.each {|x|
           # Note that only the Status "Success" means the message was sent
-          puts 'number=' + x.number + ';status=' + x.status + ';messageId=' + x.messageId + ';cost=' + x.cost
+          #puts 'number=' + x.number + ';status=' + x.status + ';messageId=' + x.messageId + ';cost=' + x.cost
+
+          #Update message with AIT response
+          message_obj.update_AIT_reponse(x.number, x.status, "msg_id", x.cost)
         }
       rescue Messaging::AfricasTalkingGatewayError => ex
-        puts 'Encountered an error: ' + ex.message
+        #puts 'Encountered an error: ' + ex.message
+
+        # Update message with error 
+        message_obj.update_AIT_reponse("ERROR", "ERROR", "ERROR", "ERROR")
       end
       # DONE!
     end

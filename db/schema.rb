@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818174029) do
+ActiveRecord::Schema.define(version: 20140819111658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,10 @@ ActiveRecord::Schema.define(version: 20140818174029) do
     t.integer  "message_manager_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "number"
+    t.string   "cost"
+    t.string   "status"
+    t.string   "msg_id"
   end
 
   add_index "messages", ["message_manager_id"], name: "index_messages_on_message_manager_id", using: :btree
@@ -207,11 +211,9 @@ ActiveRecord::Schema.define(version: 20140818174029) do
   create_table "withdrawals", force: true do |t|
     t.float    "amount"
     t.text     "description"
-    t.integer  "member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "chama_id"
   end
-
-  add_index "withdrawals", ["member_id"], name: "index_withdrawals_on_member_id", using: :btree
 
 end

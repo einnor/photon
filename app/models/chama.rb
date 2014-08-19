@@ -7,6 +7,7 @@ class Chama < ActiveRecord::Base
   has_many :sms_fees, dependent: :destroy
   has_many :service_feesing, dependent: :destroy
   has_one :setting, dependent: :destroy
+  has_many :withdrawals, dependent: :destroy
 
   # Validate fields
   validates :name, presence: true
