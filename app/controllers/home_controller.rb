@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   before_filter :authenticate_user! ,only: [:dashboard]
-  #before_action :check_chama_service_validity, only: [:dashboard,:passthrough]
+  before_action :check_chama_service_validity, only: [:dashboard,:passthrough]
 
   # Landing page
   def index
