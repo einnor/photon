@@ -21,12 +21,16 @@ class SettingsController < ApplicationController
     @settings = Setting.paginate(:page => params[:page], :per_page => 10)
   end
 
-  # GET /settings/1
-  # GET /settings/1.json
   def show
     @service_fee = ServiceFee.where(:chama_id => @setting.chama_id).last
 
-    #If a chama is logged in load chamas layout
+    # Handle pesapal
+    @pesapal = ServiceFeesHelper::PesaPalInterface.new
+    @pesapal.set_service_bundle_details(@service_fee, current_user)
+    
+    @pesapal_url = @pesapal.do_payment
+
+    # If a chama is logged in load chamas layout
     if current_user.role_ids == [2] 
       render(:layout => "layouts/application")
     end

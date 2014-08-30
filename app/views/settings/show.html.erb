@@ -76,7 +76,10 @@
                       Your service will expire on <%= @service_fee.next_payment_due_date %>
                     </h4>
                     <br />
-                    <%= link_to "Renew Service", new_sms_fee_path, :class => 'btn btn-success btn-flat' %>
+                     <button class="btn btn-success btn-flat">Check Out With</button>
+                    <%= link_to @pesapal_url do %>  
+                      <%= image_tag("pesapal.jpeg")%>
+                    <% end %>
                     
                 </div><!-- /.box-body -->
             </div><!-- /. box -->

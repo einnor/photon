@@ -12,6 +12,7 @@ module SmsFeesHelper
       @pesapal = Pesapal::Merchant.new                
     end
     
+    # Sets Pesapal Parameters when Buying SMS Bundle
     def set_sms_bundle_details(sms_fee, current_user)
       @pesapal.order_details = {  :amount => sms_fee.amount,
                                   :description => "Buying of SMS bundle."+ sms_fee.package,
@@ -23,7 +24,6 @@ module SmsFeesHelper
                                   :phonenumber => current_user.phone_number,
                                   :currency => 'KES'
                                 }
-     
     end
     
     def do_payment
@@ -32,6 +32,7 @@ module SmsFeesHelper
      
      return sms_bundle_url
     end
-    
+  # End Class
   end
+# End Module
 end

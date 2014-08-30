@@ -7,7 +7,7 @@ class ServiceFeesController < ApplicationController
     params[resource] &&= send(method) if respond_to?(method, true)
   end
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:pesapal_ipn, :pesapal_success]
   before_filter :authenticate_user!
 
   layout "admin"
@@ -24,6 +24,47 @@ class ServiceFeesController < ApplicationController
   # GET /service_fees/1
   # GET /service_fees/1.json
   def show
+  end
+
+  def pesapal_success
+    txn_tracking_id = params['pesapal_transaction_tracking_id']
+    merchant_ref = params['pesapal_merchant_reference']
+
+    # Find corresponding Service_Fee Record
+    @service_fee = ServiceFee.find(merchant_ref)
+
+    # Update with Pesapal 
+    @service_fee.update_pesapal_details(txn_tracking_id, merchant_ref)
+
+    # If a chama is logged in load chamas layout
+    if current_user.role_ids == [2] 
+      render(:layout => "layouts/application")
+    end
+  end
+
+  def pesapal_ipn
+    pesapal = ServiceFeesHelper::PesaPalInterface.new
+
+    # Fetch Pesapal Parameters
+    txn_tracking_id = params['pesapal_transaction_tracking_id']
+    merchant_ref = params['pesapal_merchant_reference']
+    notification_type = params['pesapal_notification_type']
+
+    # Find corresponding Sms_Fee Record
+    @service_fee = ServiceFee.find(merchant_ref)
+
+    # pass in the notification type, merchant reference and transaction id
+    response_to_ipn = pesapal.ipn_listener(notification_type, merchant_ref,txn_tracking_id)
+
+    new_status = response_to_ipn['status']
+
+    # Update with Pesapal .Potential BUG respond to pesapal
+    @service_fee.update_payment_status(new_status)
+
+    # If a chama is logged in load chamas layout
+    if current_user.role_ids == [2] 
+      render(:layout => "layouts/application")
+    end
   end
 
   # GET /service_fees/new

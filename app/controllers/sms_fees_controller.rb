@@ -22,13 +22,35 @@ class SmsFeesController < ApplicationController
     @pesapal_url = @pesapal.do_payment
   end
 
-  def check_out
-  end
-
   def pesapal_success
+    @txn_tracking_id = params['pesapal_transaction_tracking_id']
+    @merchant_ref = params['pesapal_merchant_reference']
+
+    # Find corresponding Sms_Fee Record
+    @sms_fee = SmsFee.find(@merchant_ref)
+
+    # Update with Pesapal 
+    @sms_fee.update_pesapal_details(@txn_tracking_id, @merchant_ref)
   end
 
   def pesapal_ipn
+    pesapal = SmsFeesHelper::PesaPalInterface.new
+
+    # Fetch Pesapal Parameters
+    txn_tracking_id = params['pesapal_transaction_tracking_id']
+    merchant_ref = params['pesapal_merchant_reference']
+    notification_type = params['pesapal_notification_type']
+
+    # Find corresponding Sms_Fee Record
+    @sms_fee = SmsFee.find(merchant_ref)
+
+    # pass in the notification type, merchant reference and transaction id
+    response_to_ipn = pesapal.ipn_listener(notification_type, merchant_ref,txn_tracking_id)
+
+    new_status = response_to_ipn['status']
+
+    # Update with Pesapal .Potential BUG respond to pesapal
+    @sms_fee.update_payment_status(new_status)
   end
 
   # GET /sms_fees/new
@@ -123,6 +145,6 @@ class SmsFeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sms_fee_params
-      params.require(:sms_fee).permit(:package, :amount, :txn_status, :pesapal_txn_tracking_id, :pesapal_merchant_reference, :chama_id)
+      params.require(:sms_fee).permit(:package, :amount, :txn_status, :pesapal_txn_tracking_id, :pesapal_merchant_reference, :chama_id, :pesapal_transaction_tracking_id, :pesapal_merchant_reference, :pesapal_notification_type)
     end
 end

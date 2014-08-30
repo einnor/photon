@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   resources :settings
 
-  resources :service_fees
+  resources :service_fees do
+    collection do
+      get :pesapal_success
+      get :pesapal_ipn
+    end
+  end
 
   resources :sms_fees do
     collection do
