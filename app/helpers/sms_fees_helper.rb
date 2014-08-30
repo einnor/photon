@@ -13,7 +13,7 @@ module SmsFeesHelper
     end
     
     def set_sms_bundle_details(sms_fee, current_user)
-      @pesapal.order_details = { :amount => sms_fee.amount,
+      @pesapal.order_details = {  :amount => sms_fee.amount,
                                   :description => "Buying of SMS bundle."+ sms_fee.package,
                                   :type => 'MERCHANT',
                                   :reference => sms_fee.id,
