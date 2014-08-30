@@ -28,17 +28,33 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
+    # Limit number of users a Chama can have
+    cur_count = Member.where(:chama_id => current_user.chama.id).count
+
+    can_create = false
+
+    if cur_count < current_user.chama.approx_no_of_members
+      can_create = true
+    end
+
+    # Create action
     @member = Member.new(member_params)
     @member.chama_id = current_user.chama.id
 
     respond_to do |format|
-      if @member.save
-        format.html { redirect_to members_url, notice: 'Member was successfully created.' }
-        format.json { render :show, status: :created, location: @member }
+      if can_create
+        if @member.save
+          format.html { redirect_to members_url, notice: 'Member was successfully created.' }
+          format.json { render :show, status: :created, location: @member }
+        else
+          format.html { render :new }
+          format.json { render json: @member.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :new }
-        format.json { render json: @member.errors, status: :unprocessable_entity }
+        format.html { redirect_to members_url, notice: 'Your Chama has reached max number of members. Contact SmartChama Admin for assistance' }
+        format.json { render :show, status: :created, location: @member }
       end
+
     end
   end
 

@@ -44,7 +44,7 @@
                           <td><%= setting.penalty_type %></td>
                           <td><%= setting.penalty_amount %></td>
                           <td><%= setting.penalty_repay_periods_in_days %></td>
-                          <td><%= setting.chama %></td>
+                          <td><%= setting.chama.name %></td>
                           
                           <td><%= link_to 'Edit', edit_setting_path(setting) %>
                               <%= link_to 'Delete', setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
