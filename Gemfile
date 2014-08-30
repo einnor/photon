@@ -64,6 +64,9 @@ gem 'curb'
 # Handle payments through Pesapal Gateway
 gem 'pesapal'
 
+# Schedule Automated SMS notifications
+gem 'rufus-scheduler'
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'
