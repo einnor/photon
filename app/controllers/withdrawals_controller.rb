@@ -1,5 +1,13 @@
 class WithdrawalsController < ApplicationController
   
+  # Cancan Workaround HACK!!
+  before_filter do
+    resource = controller_path.singularize.gsub('/', '_').to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+
+  load_and_authorize_resource
   before_filter :authenticate_user!
   
   before_action :set_withdrawal, only: [:show, :edit, :update, :destroy]
