@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   end
 
 
-  resources :messages
+  resources :messages #do
+    #collection do
+      #get :msg_manager,:id
+   # end
+  #end
 
   resources :message_managers
 
