@@ -29,7 +29,7 @@ scheduler = Rufus::Scheduler.new
   @contribution = Remittance.where(:member_id => @members)
 
   # Send Remittance Reminder Message
-  scheduler.cron '10 8 #{rem_date.day} * *' do
+  scheduler.cron '10 8 ' + rem_date.day.to_s + ' * *' do
     # Check those who have payed by this date.
     @contribution_white_lst = Remittance.where(:member_id => @members).where(:created_at > last_month_deadline)
 
@@ -84,7 +84,7 @@ scheduler = Rufus::Scheduler.new
 
 
   # Send Remittance Penalty Message
-  scheduler.cron '10 8 #{dead_line.day} * *' do
+  scheduler.cron '10 8 ' + dead_line.day.to_s + ' * *' do
     # Check those who have payed by this date.
     @contribution_white_lst = Remittance.where(:member_id => @members).where(:created_at > last_month_deadline)
 

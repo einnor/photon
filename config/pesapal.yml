@@ -4,6 +4,6 @@ development:
   consumer_secret: 'tI0s6AY64kMk5f5EDQNn7btPxb0='
 
 production:
-  callback_url: 'http://1.2.3.4:3000/sms_fees/pesapal_success'
-  consumer_key: '<YOUR_PROD_CONSUMER_KEY>'
-  consumer_secret: '<YOUR_PROD_CONSUMER_SECRET>'
+  callback_url: 'http://smartchama.herokuapp.com/sms_fees/pesapal_success'
+  consumer_key: 'qXiKd4Mp4109RzTa0t71MS6IEiE+SSim'
+  consumer_secret: 'tI0s6AY64kMk5f5EDQNn7btPxb0='
