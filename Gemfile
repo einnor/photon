@@ -67,6 +67,18 @@ gem 'pesapal'
 # Schedule Automated SMS notifications
 gem 'rufus-scheduler'
 
+# Draw SmartChama ERD Diagram
+gem 'erd'
+
+# Start BDD and TDD
+gem "rspec-rails", :group => [:test, :development]
+
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'
