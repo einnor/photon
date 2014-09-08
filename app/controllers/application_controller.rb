@@ -28,15 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_chama_service_validity
-    #check whether chama has renewed service
-    @service_fee = ServiceFee.where(:chama_id => current_user.chama.id).last
     
-    # Check if user has renewed service
-    if @service_fee.service_status != "OK"
-      # Service not renewed or service status is not OK
-      redirect_to home_service_suspended_path
-      return
-    end
   end
 
   # Private methods
