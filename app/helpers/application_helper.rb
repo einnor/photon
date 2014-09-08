@@ -51,7 +51,7 @@ module ApplicationHelper
 
    # Returns the full title on a per-page basis.
   def full_title(page_title)
-    base_title = "SmartChama | Run your Chama the Smart way"
+    base_title = "SmartChama | The Smart way to manage your Chama"
       if page_title.empty?
         base_title
       else

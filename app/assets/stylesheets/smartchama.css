@@ -25,3 +25,13 @@
 #error_explanation ul li{
 	color: red !important;
 }
+
+#logo img{
+  width: 340px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.tagline_color{
+  color: orange !important;
+}
