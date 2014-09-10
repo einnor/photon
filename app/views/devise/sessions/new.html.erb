@@ -1,11 +1,11 @@
     <div id="hm_page">
         <ul class="cb-slideshow">
-            <li><span>Image 01</span><div><h3>SMS Notifications</h3></div></li>
-            <li><span>Image 02</span><div><h3>Managing Loans</h3></div></li>
-            <li><span>Image 03</span><div><h3>Member Registration</h3></div></li>
-            <li><span>Image 04</span><div><h3>Loan Disbursement</h3></div></li>
-            <li><span>Image 05</span><div><h3>Contributions Handling</h3></div></li>
-            <li><span>Image 06</span><div><h3>The SmartChama.</h3></div></li>
+            <li><span>Image 01</span><div><h3>SMS Notifications.</h3></div></li>
+            <li><span>Image 02</span><div><h3>Managing Loans.</h3></div></li>
+            <li><span>Image 03</span><div><h3>Member Registration.</h3></div></li>
+            <li><span>Image 04</span><div><h3>Loan Disbursement.</h3></div></li>
+            <li><span>Image 05</span><div><h3>Handling Contributions.</h3></div></li>
+            <li><span>Image 06</span><div><h3>Record Keeping.</h3></div></li>
         </ul>
         <div class="container">
             <!-- Codrops top bar -->
@@ -18,8 +18,11 @@
 		        <div class="header">Log In</div>
 		    	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 		    	<div class="body bg-gray">
-				  <div><%= f.label :email %><br />
-				  <%= f.email_field :email, autofocus: true %></div>
+                     <%= flash_messages %>
+                  <div>
+                    <%= f.label "Username" %><br />
+                    <%= f.text_field :login, autofocus: true %>
+                  </div>
 
 				  <div><%= f.label :password %><br />
 				    <%= f.password_field :password, autocomplete: "off" %></div>

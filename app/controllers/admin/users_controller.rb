@@ -8,6 +8,7 @@ class Admin::UsersController < ApplicationController
   end
 
   #load_and_authorize_resource
+  #before_filter :authenticate_user!
 
   layout "admin"
 
@@ -22,6 +23,10 @@ class Admin::UsersController < ApplicationController
   # GET /Users/1
   # GET /Users/1.json
   def show
+    # If a chama is logged in load chamas layout
+    if current_user.role_ids == [2] 
+      render(:layout => "layouts/application")
+    end
   end
 
   # GET /Users/new
@@ -31,6 +36,10 @@ class Admin::UsersController < ApplicationController
 
   # GET /Users/1/edit
   def edit
+    # If a chama is logged in load chamas layout
+    if current_user.role_ids == [2] 
+      render(:layout => "layouts/application")
+    end
   end
 
   # POST /Users
@@ -54,7 +63,7 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to admin_user_path(@user), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -81,7 +90,7 @@ class Admin::UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params      
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone_number, :national_id_number)
+      params.require(:user).permit(:username, :name, :email, :password, :password_confirmation, :phone_number, :national_id_number)
     end
 
 end
