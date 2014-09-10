@@ -8,8 +8,11 @@ class HomeController < ApplicationController
     if signed_in?
       redirect_to home_dashboard_path
       return
+    else
+      # Make Login page the default page
+     redirect_to new_user_session_path
     end
-    render(:layout => "layouts/landing")
+    #render(:layout => "layouts/landing")
   end
 
   def passthrough

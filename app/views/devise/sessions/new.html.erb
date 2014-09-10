@@ -1,24 +1,21 @@
     <div id="hm_page">
         <ul class="cb-slideshow">
-            <li><span>Image 01</span><div><h3></h3></div></li>
-            <li><span>Image 02</span><div><h3></h3></div></li>
-            <li><span>Image 03</span><div><h3></h3></div></li>
-            <li><span>Image 04</span><div><h3></h3></div></li>
-            <li><span>Image 05</span><div><h3></h3></div></li>
-            <li><span>Image 06</span><div><h3></h3></div></li>
+            <li><span>Image 01</span><div><h3>SMS Notifications</h3></div></li>
+            <li><span>Image 02</span><div><h3>Managing Loans</h3></div></li>
+            <li><span>Image 03</span><div><h3>Member Registration</h3></div></li>
+            <li><span>Image 04</span><div><h3>Loan Disbursement</h3></div></li>
+            <li><span>Image 05</span><div><h3>Contributions Handling</h3></div></li>
+            <li><span>Image 06</span><div><h3>The SmartChama.</h3></div></li>
         </ul>
         <div class="container">
             <!-- Codrops top bar -->
             
-            <header>
-                <div id="logo">
-                    <%= image_tag("logo.jpg") %>
-                </div>
-                <h2 class="tagline_color">The Smart way to manage your Chama</h2>
-            </header>
+
+            <!--/ Codrops top bar -->
+            
 
 		    <div class="form-box" id="login-box">
-		        <div class="header">Sign In</div>
+		        <div class="header">Log In</div>
 		    	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 		    	<div class="body bg-gray">
 				  <div><%= f.label :email %><br />

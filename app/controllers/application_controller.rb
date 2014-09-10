@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   # Redirect user to index page after sign out
   def after_sign_out_path_for(resource)
-    home_index_path
+    new_user_session_path
   end
 
   
