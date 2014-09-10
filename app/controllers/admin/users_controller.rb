@@ -24,9 +24,7 @@ class Admin::UsersController < ApplicationController
   # GET /Users/1.json
   def show
     # If a chama is logged in load chamas layout
-    if current_user.role_ids == [2] 
-      render(:layout => "layouts/application")
-    end
+    
   end
 
   # GET /Users/new
@@ -37,9 +35,7 @@ class Admin::UsersController < ApplicationController
   # GET /Users/1/edit
   def edit
     # If a chama is logged in load chamas layout
-    if current_user.role_ids == [2] 
-      render(:layout => "layouts/application")
-    end
+    
   end
 
   # POST /Users
