@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: smartchama_development
+  database: smartsales_development
   pool: 5
   username: dmitry
   password: 
@@ -41,7 +41,7 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: smartchama_test
+  database: smartsales_test
   pool: 5
   username: dmitry
   password:
@@ -49,7 +49,7 @@ test: &test
 production:
   adapter: postgresql
   encoding: unicode
-  database: smartchama_production
+  database: smartsales_production
   pool: 5
   username: dmitry
   password:
