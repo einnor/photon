@@ -24,7 +24,19 @@
 			Posted <i><%= time_ago_in_words(@post.created_at) %> ago</i>
 		</div>
 
-	</div>
+		<br />
+
+		<% if @post.comments.any? %>
+
+			<ul>
+				<% @post.comments.each do | comment |%>
+					<span class="blue-cl"><%= comment.user.username %></span> &nbsp; <%= comment.content %> - <i><%= time_ago_in_words(comment.created_at) %> ago</i> <br>
+				<% end %>
+			</ul>
+		<% end %>
+
+		<%= link_to 'Comment', new_comment_path(:post_id => @post.id) %>
+    	</div>
 	<div class="col-md-2">
 	</div>
 </div>

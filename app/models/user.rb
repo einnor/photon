@@ -8,8 +8,13 @@ class User < ActiveRecord::Base
   # Virtual Login attribute
   attr_accessor :login
 
+  # Send messages to other users
+  acts_as_messageable
+
   has_and_belongs_to_many :roles
   has_many :posts
+  has_many :comments, :through => :posts
+  has_one :like, :through => :posts
   
   before_save :setup_role
 

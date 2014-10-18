@@ -84,6 +84,9 @@ end
 # Upload Attachments
 gem 'carrierwave'
 
+#Send messages
+gem 'mailboxer'
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'

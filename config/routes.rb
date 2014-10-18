@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :posts
+  resources :comments
+
+  resources :posts do
+    collection do
+      get :like_post
+    end
+  end
 
   # Home routes
   get 'home/index'

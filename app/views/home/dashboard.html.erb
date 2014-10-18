@@ -16,7 +16,7 @@
                 <div class="row">
                 	 <div class="pull-letf">
                 	 	<div class="pull-left">                           
-	                        <%= image_tag("avatar3.png",:width =>"30", :height=>"30", :class=>"img-circle")%>
+	                        <%= link_to image_tag("avatar3.png",:width =>"30", :height=>"30", :class=>"img-circle"), '#' %>
 	                    </div>
 	                    <h4>
 	                        <%= post.user.username %>
@@ -28,9 +28,20 @@
                 	 </div>
 
                 	 <div class="col-md-10">
-					  <%= image_tag(post.photon)%>
-					</div>
+					  <%= link_to image_tag(post.photon), post%>
 
+                      <br />
+                        <% if post.comments.any? %>
+
+                            <ul>
+                                <% post.comments.each do | comment |%>
+                                    <span class="blue-cl"><%= comment.user.username %></span> &nbsp; <%= comment.content %> - <i><%= time_ago_in_words(comment.created_at) %> ago</i> <br>
+                                <% end %>
+                            </ul>
+                        <% end %>
+
+                        <%= link_to 'Comment', new_comment_path(:post_id => post.id) %> |<%= link_to 'Like', like_post_posts_path(:id => post.id) %>
+					</div>
                 </div>
 
               </li>          

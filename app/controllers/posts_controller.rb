@@ -15,6 +15,30 @@ class PostsController < ApplicationController
   def show
   end
 
+  def like_post
+    # Fecct the concerned post
+    @post = Post.find(params[:id])
+
+    # check if user has aloread jfjrjjfjklfdkkdkldsklf
+    prev_like = Like.where(:user_id => current_user.id, :post_id => @post.id)
+
+    if !prev_like.blank?
+      # you already like me
+      #go back to where you came from.
+      redirect_to request.referer, notice: 'You already like Me.'
+      return
+    end
+
+    # create like
+    like = Like.new(:user_id => current_user.id, :post_id => @post.id)
+
+    # Save it
+    like.save
+
+    #go back to where you came from.
+    redirect_to request.referer, notice: 'Successfully liked post'
+  end
+
   # GET /posts/new
   def new
     @post = Post.new
