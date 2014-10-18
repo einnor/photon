@@ -35,10 +35,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       
       # Other fields for User model
       t.string :name,              null: false, default: ""
-      t.string :phone_number,              null: false, default: ""
-      t.string :national_id_number,              null: false, default: ""
-    end
+      t.string :username,          null: false, default: ""
 
+    end
+    add_index :users, :username,             unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true

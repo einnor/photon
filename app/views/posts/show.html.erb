@@ -1,0 +1,32 @@
+
+<div class="row">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">
+
+		<p id="notice"><%= notice %></p>
+		
+		<div class="thumbnail">
+		  <%= image_tag(@post.photon)%>
+		</div>
+
+		<p>
+		  <strong>Caption:</strong>
+		  <%= @post.caption %>
+		</p>
+
+		<p>
+		  <strong>Posted By:</strong>
+		  <%= @post.user.username %>
+		</p>
+
+		<div class="pull-right">
+			Posted <i><%= time_ago_in_words(@post.created_at) %> ago</i>
+		</div>
+
+	</div>
+	<div class="col-md-2">
+	</div>
+</div>
+
+

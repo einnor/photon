@@ -9,13 +9,13 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   has_and_belongs_to_many :roles
+  has_many :posts
+  
   before_save :setup_role
 
   # Validate fields
   validates :name, presence: true
   validates :email, presence: true
-  validates :phone_number, presence: true
-  validates :national_id_number, presence: true
 
   # Validate username
   validates :username, presence: true,

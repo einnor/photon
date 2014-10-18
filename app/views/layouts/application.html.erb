@@ -28,18 +28,23 @@
     <div class="skin-blue">     
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
-            <%= render 'layouts/common/sidebar' %>
 	          
             <!-- Right side column. Contains the navbar and content of the page -->
-            <aside class="right-side">
+           
               <div class="row">
-                  <div class="col-md-6 col-md-offset-2">
+                  <div class="col-md-3">
+                
+                  </div>
+                  <div class="col-md-6 skin-white">
                     <%= flash_messages %>
+                    <%= yield %>
+                  </div>
+                  <div class="col-md-3">
                   </div>
               </div>
-              <%= yield %>
+              
 
-            </aside><!-- /.right-side -->
+  
        
           </div><!-- ./wrapper -->
     </div>

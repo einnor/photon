@@ -32,8 +32,11 @@
 				  <% end -%>
 
 				  <div><%= f.submit "Sign in",:class=>"btn bg-sc-blue btn-block" %></div>
-				  </div>
+				    <%= render "devise/shared/links" %>  
+                  </div>
 				<% end %>
-		    </div>            
+
+		    </div> 
+           
         </div>
     </div>

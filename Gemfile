@@ -79,6 +79,11 @@ group :test do
   gem "guard-rspec"
 end
 
+####################
+
+# Upload Attachments
+gem 'carrierwave'
+
 # Use PostgreSQL Database
 group :production do
   gem 'pg'

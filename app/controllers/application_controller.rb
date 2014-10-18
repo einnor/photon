@@ -56,37 +56,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-   # Calculates Chama's current savings
-   def chama_current_savings
-    chama_id = current_user.chama.id
-    chama_members = Member.where(:chama_id => chama_id)
-
-    # Check last withdrawal date
-    withdrawal_txns = Withdrawal.where(:chama_id => chama_id)
-
-    # Sum all withdrawals
-    total_withdrawals = 0
-
-
-    # Fetch all remittances of the member in question since last withdrawal
-    if withdrawal_txns.blank?
-      contributions = Remittance.where(:member_id => chama_members)
-    else
-      # Bug here..fix it later
-      withdrawal_txns.each do | w_txn |
-        total_withdrawals += w_txn.amount
-      end
-
-      contributions = Remittance.where(:member_id => chama_members)
-    end
-
-    # Sum all contributions
-    contributions_sum = 0
-
-    contributions.each do | contrib |
-      contributions_sum += contrib.amount
-    end
-
-    contributions_sum - total_withdrawals
-   end
 end

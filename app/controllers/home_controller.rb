@@ -29,7 +29,8 @@ class HomeController < ApplicationController
 
   # Chama homepage
   def dashboard
-    # TO DO
+    # Show this guys post
+    @posts = Post.where(:user_id => current_user.id)
   end
 
   # Contact us page
