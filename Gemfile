@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -46,6 +46,24 @@ gem 'will_paginate', '~> 3.0'
 # Devise gem to Authenticate Users
 gem 'devise'
 
+# Gems for login using social media
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+
+gem 'twitter'
+gem 'json'
+gem 'airbrake'
+gem 'koala'
+gem 'linkedin'
+
+
+gem 'rmagick'
+
 # To handle resource authorization
 gem "cancan"
 
@@ -59,7 +77,7 @@ gem 'rails_12factor', group: :production
 gem 'json'
 
 # Required by AfricaIsTalking Gateway
-gem 'curb'
+#gem 'curb'
 
 # Handle payments through Pesapal Gateway
 gem 'pesapal'

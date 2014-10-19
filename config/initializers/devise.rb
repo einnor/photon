@@ -227,6 +227,20 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+  require 'devise/orm/active_record'
+  
+  
+  # Set the default hostname for omniauth to send callbacks to.
+  OmniAuth.config.full_host = "http://localhost:8080"
+  
+  
+  
+  config.sign_out_via = :get
+  #config.omniauth :facebook, ENV["FACEBOOK_KEY"], ENV["FACEBOOK_SECRET"], { :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  #config.omniauth :twitter, ENV["TWITTER_KEY"], ENV["TWITTER_SECRET"], { :scope => 'r_fullprofile, r_emailaddress', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  config.omniauth :linkedin, ENV["LINKEDIN_KEY"], ENV["LINKEDIN_SECRET"], { :scope => 'r_fullprofile r_emailaddress', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: "user, public_repo"
+  config.omniauth :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'], {}
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -261,4 +275,9 @@ Devise.setup do |config|
   config.confirmation_keys = [ :login ]
 
   config.authentication_keys = [ :login ]
+  
+  
+  config.omniauth :facebook, "1550605158506653", "760dd2ef9e79900b15a38699f9a04f19", { :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  config.omniauth :twitter, "6AYv3tH2P3EnBG3X6n7HDFX1Y", "7PjnxQ3gteRtno00A36DxCXEKYiolZ5MHNcmaUWx045A2NWIdb", { :scope => 'r_fullprofile, r_emailaddress', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  #config.omniauth :linked_in, "KEY", "SECRET"
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :authentications
+
   resources :comments
 
   resources :posts do
@@ -25,7 +27,8 @@ Rails.application.routes.draw do
 
   get 'admin/admin/index'
 
-  devise_for :users
+  
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   
   root :to => 'home#index'

@@ -63,15 +63,15 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to admin_user_path(@user), notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+        sign_in(@user == current_user ? @user : current_user, :bypass => true)        format.html { redirect_to admin_user_path(@user), notice: 'User was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
-
+  
   # DELETE /Users/1
   # DELETE /Users/1.json
   def destroy
