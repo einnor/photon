@@ -61,6 +61,9 @@ gem 'airbrake'
 gem 'koala'
 gem 'linkedin'
 
+gem "authbuttons-rails"
+
+
 
 gem 'rmagick'
 
