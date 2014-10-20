@@ -4,5 +4,5 @@ Photon is a photo and video sharing web application. Users of the application ca
 
 The users of the application can follow other users and have followers, see the posts of their 'followings', comment and like the posts.
 
-Photon is the joint project of [Ronnie Nyaga](http://twitter.com/ronnie_nyaga) [Kitili](http://twitter.com/gideon_kitili)
+Photon is the joint project of [Ronnie Nyaga](http://twitter.com/ronnie_nyaga) and [Gedion Kitili](http://twitter.com/gideon_kitili)
 
