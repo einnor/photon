@@ -15,34 +15,41 @@
               <li class="list-group-item">
                 <div class="row">
                 	 <div class="pull-letf">
-                	 	<div class="pull-left">                           
+                	    <div class="pull-left">                           
 	                        <%= link_to image_tag("avatar3.png",:width =>"30", :height=>"30", :class=>"img-circle"), '#' %>
 	                    </div>
 	                    <h4>
-	                        <%= post.user.username %>
-	                        
+	                        <%= post.user.username %>    
 	                    </h4>
                 	 </div>
                 	 <div class="pull-right">
-                	 	<small><i class="fa fa-clock-o"></i> <%= time_ago_in_words(post.created_at) %> ago</small>
+                	    <small><i class="fa fa-clock-o"></i> <%= time_ago_in_words(post.created_at) %> ago</small>
                 	 </div>
 
                 	 <div class="col-md-10">
-					  <%= link_to image_tag(post.photon), post%>
+			    <%= link_to image_tag(post.photon), post%>
 
-                      <br />
-                        <% if post.comments.any? %>
+				<br />
+				<% if post.comments.any? %>
 
-                            <ul>
-                                <% post.comments.each do | comment |%>
+				<ul>
+				    <% post.comments.each do | comment |%>
                                     <span class="blue-cl"><%= comment.user.username %></span> &nbsp; <%= comment.content %> - <i><%= time_ago_in_words(comment.created_at) %> ago</i> <br>
-                                <% end %>
-                            </ul>
-                        <% end %>
+			        <% end %>
+			       </ul>
+			    <% end %>
+                        
+			    <a href="<%= new_comment_path(:post_id => post.id) %>" >
+				Comment
+                                <i class="fa fa-comment"></i>
+			    </a>
 
-                        <%= link_to 'Comment', new_comment_path(:post_id => post.id) %> |<%= link_to 'Like', like_post_posts_path(:id => post.id) %>
-					</div>
-                </div>
+			    | <a href="<%= like_post_posts_path(:id => post.id) %>" >
+				Like
+                                <i class="fa fa-heart"></i>
+			    </a>
+			</div>
+		    </div>
 
               </li>          
 

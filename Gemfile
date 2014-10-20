@@ -63,6 +63,7 @@ gem 'linkedin'
 
 gem "authbuttons-rails"
 
+gem 'annotate', '~> 2.6.5'
 
 
 gem 'rmagick'
